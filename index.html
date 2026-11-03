@@ -1,691 +1,158 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Taiao Kawiti — Software Developer</title>
-    <meta
-      name="description"
-      content="Taiao Kawiti — Full-stack software developer based in New Zealand."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- ─── HERO ─────────────────────────────────────────────── -->
-    <section id="hero">
-      <div class="container">
-        <div class="hero-wrap">
-          <div class="term-bar">
-            <span class="term-dot"></span>
-            <span class="term-dot"></span>
-            <span class="term-dot"></span>
-            <span class="term-title">taiao@kawiti: ~</span>
-          </div>
-          <div class="term-body">
-            <p class="term-intro-line">
-              <span class="term-ps1">~$</span> <span id="intro-typed"></span
-              ><span class="intro-cursor cursor"></span>
-            </p>
-            <div class="neofetch">
-              <pre class="neo-art" aria-hidden="true">
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⣁⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡤⠾⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡾⠁⣀⡀⠸⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⡁⢸⣿⠏⠀⠹⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⣿⣿⣷⠠⢤⣄⣀⣠⣿⡦⠀⠀⠀⠀⠀⣀⣠⡄⠀
-⠀⢰⣶⣤⣤⣤⣤⣀⣀⣈⣉⣉⣉⣉⣀⣀⣉⣉⣩⡌⠛⣀⠀⢶⣾⣿⣿⣿⠁⠀
-⠀⠘⣿⣿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⢺⣿⣧⠈⢿⡿⠛⠃⠀⠀
-⠀⠀⠈⠃⠀⠀⠈⠻⣿⡿⠏⠈⠙⠻⢿⣿⡿⠟⠁⠀⠀⠛⠻⠇⠈⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</pre
-              >
-              <div class="neo-info">
-                <div class="neo-header">
-                  taiao<span class="neo-at">@</span>kawiti
-                </div>
-                <div class="neo-sep">-----------</div>
-                <div class="neo-row">
-                  <span class="neo-key">OS</span
-                  ><span class="neo-val">Wellington, Aotearoa</span>
-                </div>
-                <div class="neo-row">
-                  <span class="neo-key">Host</span
-                  ><span class="neo-val">Ngāpuhi / Ngāti Hine</span>
-                </div>
-                <div class="neo-row">
-                  <span class="neo-key">Kernel</span
-                  ><span class="neo-val">full-stack engineer</span>
-                </div>
-                <div class="neo-row">
-                  <span class="neo-key">Uptime</span
-                  ><span class="neo-val">29 years</span>
-                </div>
-                <div class="neo-row">
-                  <span class="neo-key">Packages</span
-                  ><span class="neo-val">Ruby · TypeScript · SQL · React</span>
-                </div>
-                <div class="neo-row">
-                  <span class="neo-key">DE</span
-                  ><span class="neo-val">A cactus and 3 coffee cups</span>
-                </div>
-                <div class="neo-colors">
-                  <span style="background: #f7768e"></span>
-                  <span style="background: #e0af68"></span>
-                  <span style="background: #9ece6a"></span>
-                  <span style="background: #7aa2f7"></span>
-                  <span style="background: #bb9af7"></span>
-                  <span style="background: #7dcfff"></span>
-                  <span style="background: #73daca"></span>
-                </div>
-              </div>
-            </div>
-            <p class="hero-prompt">
-              <span class="term-ps1">~$</span> <span id="prompt-typed"></span
-              ><span class="cursor"></span>
-            </p>
-          </div>
-        </div>
-        <div class="hero-cta">
-          <a href="#about" data-cmd="cat about.md" aria-label="about"
-            ><svg
-              class="cta-icon"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <circle cx="12" cy="8" r="4" />
-              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" /></svg
-            ><span class="cta-label">about</span></a
-          >
-          <a href="#projects" data-cmd="git log --oneline" aria-label="work"
-            ><svg
-              class="cta-icon"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <polyline points="16 18 22 12 16 6" />
-              <polyline points="8 6 2 12 8 18" /></svg
-            ><span class="cta-label">work</span></a
-          >
-          <a href="#contact" data-cmd="ping taiao@kawiti" aria-label="contact"
-            ><svg
-              class="cta-icon"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path
-                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
-              /></svg
-            ><span class="cta-label">contact</span></a
-          >
-        </div>
-      </div>
-    </section>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taiao Kawiti — portfolio prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-    <!-- ─── NAV ─────────────────────────────────────────────── -->
-    <div id="nav-sentinel"></div>
+<header id="hdr">
+  <div class="wrap">
+    <a href="#hero" class="mark">Taiao Kawiti</a>
     <nav>
-      <div class="nav-inner">
-        <a href="#hero" class="nav-brand">>_ tk</a>
-        <ul class="nav-links">
-          <li>
-            <a href="#about"
-              ><svg
-                class="nav-icon"
-                width="15"
-                height="15"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <circle cx="12" cy="8" r="4" />
-                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" /></svg
-              ><span class="nav-label">[about]</span></a
-            >
-          </li>
-          <li>
-            <a href="#projects"
-              ><svg
-                class="nav-icon"
-                width="15"
-                height="15"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <polyline points="16 18 22 12 16 6" />
-                <polyline points="8 6 2 12 8 18" /></svg
-              ><span class="nav-label">[work]</span></a
-            >
-          </li>
-          <li>
-            <a href="#contact"
-              ><svg
-                class="nav-icon"
-                width="15"
-                height="15"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
-                /></svg
-              ><span class="nav-label">[contact]</span></a
-            >
-          </li>
-        </ul>
-      </div>
+      <a class="nl" href="#about">about</a>
+      <a class="nl" href="#work">working on</a>
+      <a class="nl" href="#dev">dev</a>
+      <a class="nl" href="#creative">creative</a>
+      <a class="btn" href="#contact">Work with me</a>
     </nav>
+  </div>
+</header>
 
-    <!-- ─── ABOUT ─────────────────────────────────────────────── -->
-    <section id="about">
-      <div class="container">
-        <div class="animate-in">
-          <div class="tmux-container">
-            <div class="tmux-split">
-              <div class="tmux-pane">
-                <span class="tmux-title">[ about.md ]</span>
-                <div class="tmux-lined">
-                  <p class="tmux-line">Kia ora, I'm Taiao.</p>
-                  <p></p>
-                  <p class="tmux-line">&nbsp;</p>
-                  <p class="tmux-line">
-                    Before tech I was a videographer and got to tell some really
-                    touching stories about my whanau in the north, which I'd
-                    like to think informs my approach to code and who it serves.
-                    I also worked in hospo for many years, tempered by loud
-                    customers and minimum wage.
-                  </p>
-                  <p class="tmux-line">&nbsp;</p>
-                  <p class="tmux-line">
-                    I've worked in Ruby on Rails, which was really cool, and
-                    COBOL at a bank, which was less cool. Either way I've been
-                    forced to pick up new and odd stacks and run with them.
-                    Right now I'm looking for something modern, and somewhere I
-                    can have a say. 
-                  </p>
-                  <p class="tmux-line">&nbsp;</p>
-                  <p class="tmux-line">
-                    This portfolio site is a rewrite of a React based site I
-                    built after my studies, with youthful optimism, in 2023.
-                    When I'm not cutting code, I'll be hyper focusing on gym,
-                    an rpg, or a warhammer book.
-                  </p>
-                </div>
-              </div>
-              <div class="tmux-pane">
-                <span class="tmux-title">[ stack ]</span>
-                <div class="tmux-pane-body">
-                  <ul class="tmux-stack">
-                    <li>javascript</li>
-                    <li>react</li>
-                    <li>html5 / css3</li>
-                    <li>ruby / rails</li>
-                    <li>sql</li>
-                    <li>cobol / jcl</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="tmux-pane tmux-activity-pane">
-              <span class="tmux-title">[ activity ]</span>
-              <div class="activity-content">
-                <p class="activity-body">
-                  <a
-                    class="activity-gh-link"
-                    href="https://github.com/taiaok"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="GitHub profile"
-                    ><svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-                      /></svg></a
-                  ><span id="activity-body">last spotted …</span>
-                </p>
-              </div>
-            </div>
-            <div class="tmux-tabbar">
-              <a href="#about" class="tmux-tab tmux-tab--active">about</a>
-              <a href="#projects" class="tmux-tab">work</a>
-              <a href="#contact" class="tmux-tab">contact</a>
-            </div>
-          </div>
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap">
+    <div class="label">Delivery · Technology · Story</div>
+    <h1 class="huge" style="margin-top:18px">Taiao<br>Kawiti</h1>
+    <p class="tagline">Delivery lead bridging technology, creative work and Māori communities. I help projects get from idea to something real, without losing the people along the way.</p>
+    <div class="chips">
+      <a class="chip" href="#work">→ Delivery</a>
+      <a class="chip" href="#dev">→ Technology</a>
+      <a class="chip" href="#creative">→ Story</a>
+    </div>
+    <div class="hero-actions">
+      <a class="btn" href="#contact">Work with me</a>
+      <a class="btn ghost" href="#work">See what I'm working on</a>
+      <span class="scroll-hint">↓ or scroll</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="label">who am i?</div>
+    <p class="big" style="margin-top:18px">I sit where <em>technology</em>, <em>story</em> and <em>community</em> meet, and I make sure the work actually lands.</p>
+    <div class="about-body">
+      <p>Ngāpuhi, Ngāti Hine, based in Te Whanganui-a-Tara. I started out behind a camera, moved into software, and now lead delivery: shaping scope, steering technical decisions and mentoring the people doing the build.</p>
+      <p>My focus is technology that serves Māori and underserved communities: data sovereignty, tech literacy and ethical AI. I'm the person who asks the awkward question early so it doesn't become an expensive problem later.</p>
+    </div>
+    <div class="sec-cta"><a href="#contact">Sound like what your project needs? →</a></div>
+  </div>
+</section>
+
+<!-- WORKING ON -->
+<section id="work">
+  <div class="wrap">
+    <div class="label">working on</div>
+    <h2>Āhau</h2>
+    <p class="lede">Delivery Lead on a kaupapa Māori app. Click a milestone to see the problem, the call I made and what came of it. <span style="color:var(--muted)">(Placeholder copy, swap in the real story.)</span></p>
+
+    <div class="roadmap">
+      <div class="rm-head"><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span></div>
+      <div class="rm-row"><div class="rm-name">Discovery</div><div class="rm-track"><div class="bar" data-i="0" style="left:0;width:30%">Audit &amp; scope</div></div></div>
+      <div class="rm-row"><div class="rm-name">Structure</div><div class="rm-track"><div class="bar" data-i="1" style="left:18%;width:32%">Delivery role &amp; plan</div></div></div>
+      <div class="rm-row"><div class="rm-name">People</div><div class="rm-track"><div class="bar" data-i="2" style="left:32%;width:60%">Mentoring the build team</div></div></div>
+      <div class="rm-row"><div class="rm-name">Ship</div><div class="rm-track"><div class="bar" data-i="3" style="left:60%;width:38%">Visible progress</div></div></div>
+    </div>
+    <div class="rm-detail" id="rmDetail"></div>
+
+    <div class="sec-cta"><a href="#contact">Got a project like this? →</a></div>
+  </div>
+</section>
+
+<!-- DEV -->
+<section id="dev">
+  <div class="wrap">
+    <div class="term">
+      <div class="term-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="t">taiao@kawiti: ~/dev — past stuff</span></div>
+      <div class="term-body" id="termBody">
+        <div><span class="prompt">taiao@kawiti</span>:~/dev$ <span class="cmd">cat README.md</span></div>
+        <h2 class="t-h">I was a developer.<br>I still think like one.</h2>
+        <p class="t-p">Hands-on engineering is why my technical advice holds up. I've shipped Rails features, kept payment systems running on a mainframe, and built my own tools on Linux.</p>
+        <div class="t-hint" id="cmds"><span># try:</span>
+          <button data-c="whoami">whoami</button>
+          <button data-c="ls experience/">ls experience/</button>
+          <button data-c="cat flick.md">cat flick.md</button>
+          <button data-c="cat bnz.md">cat bnz.md</button>
+          <button data-c="ls side-projects/">ls side-projects/</button>
+          <button data-c="./contact.sh">./contact.sh</button>
         </div>
+        <div id="termOut"></div>
+        <div class="t-input-line"><span class="prompt">taiao@kawiti</span>:~/dev$ <input id="termIn" aria-label="terminal input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="type help"></div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <div class="pacman-divider" data-above="about" data-below="projects" aria-hidden="true"><span class="pd-l"></span><span class="pd-p"></span><span class="pd-d"></span><span class="pd-r">]</span></div>
-
-    <!-- ─── PROJECTS ──────────────────────────────────────────── -->
-    <section id="projects">
-      <div class="container">
-        <div class="animate-in">
-          <div class="hero-wrap projects-wrap">
-            <div class="term-bar">
-              <span class="term-dot"></span>
-              <span class="term-dot"></span>
-              <span class="term-dot"></span>
-              <span class="term-title"
-                >taiao@kawiti: ~/<span style="color: #7dcfff"
-                  >projects</span
-                ></span
-              >
-            </div>
-            <div class="term-body projects-body">
-              <p class="git-cmd">
-                <span class="git-cmd-ps1">~$</span> git log --oneline --all
-              </p>
-              <div class="git-log">
-                <div class="git-entry">
-                  <div class="git-meta">
-                    <div class="git-anchor">
-                      <span class="git-hash">a3f92d1</span>
-                      <div class="git-links">
-                        <a
-                          href="https://taiaok.github.io/todo-app/"
-                          target="_blank"
-                          rel="noreferrer"
-                          >live ↗</a
-                        >
-                      </div>
-                    </div>
-                    <div class="git-refs">
-                      <span
-                        class="git-ref"
-                        style="
-                          background: rgba(224, 175, 104, 0.18);
-                          color: #e0af68;
-                        "
-                        >javascript</span
-                      >
-                    </div>
-                  </div>
-                  <div class="git-subject">
-                    <a
-                      class="git-name"
-                      href="https://taiaok.github.io/todo-app/"
-                      target="_blank"
-                      rel="noreferrer"
-                      >todo app</a
-                    >
-                    <span class="git-sep">—</span>
-                    <span class="git-desc"
-                      >a meaningful portfolio project with AI supercharged insights</span
-                    >
-                  </div>
-                </div>
-
-                <div class="git-entry">
-                  <div class="git-meta">
-                    <div class="git-anchor">
-                      <span class="git-hash">b2190a3</span>
-                      <div class="git-links">
-                        <a
-                          href="https://taiaok.github.io/JS-Calculator/"
-                          target="_blank"
-                          rel="noreferrer"
-                          >live ↗</a
-                        >
-                        <a
-                          href="https://github.com/taiaok/JS-Calculator"
-                          target="_blank"
-                          rel="noreferrer"
-                          >repo ↗</a
-                        >
-                      </div>
-                    </div>
-                    <div class="git-refs">
-                      <span
-                        class="git-ref"
-                        style="
-                          background: rgba(224, 175, 104, 0.18);
-                          color: #e0af68;
-                        "
-                        >javascript</span
-                      >
-                    </div>
-                  </div>
-                  <div class="git-subject">
-                    <a
-                      class="git-name"
-                      href="https://taiaok.github.io/JS-Calculator/"
-                      target="_blank"
-                      rel="noreferrer"
-                      >js calculator</a
-                    >
-                    <span class="git-sep">—</span>
-                    <span class="git-desc"
-                      >a definitely not pet project that is definitely reflective of my ability and definitely was not built while I was a student</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+<!-- CREATIVE -->
+<section id="creative">
+  <div class="wrap">
+    <div class="nle">
+      <div class="nle-bar"><div class="tabs"><span>Assembly</span><span class="on">Edit</span><span>Audio</span></div><span class="t">taiao_reel — creative</span><span>⌘</span></div>
+      <div class="monitor" id="monitor">
+        <span class="rec"><b>●</b> PROGRAM</span>
+        <span class="tc" id="tc">00:00:00:00</span>
+        <h3 id="monTitle"></h3>
+        <p id="monText"></p>
       </div>
-    </section>
-
-    <!-- ─── CONTACT ───────────────────────────────────────────── -->
-    <section id="contact">
-      <div class="container">
-        <div class="animate-in">
-          <div class="hero-wrap contact-wrap">
-            <div class="term-bar">
-              <span class="term-dot"></span>
-              <span class="term-dot"></span>
-              <span class="term-dot"></span>
-              <span class="term-title">taiao@kawiti: ~/<span style="color:#7dcfff">contact</span></span>
-            </div>
-            <div class="term-body contact-geo-body">
-              <div class="geo-inner">
-                <div class="geo-content">
-                  <p class="geo-border"><span class="geo-sparkle">✦</span> *·.·*·.·*·.·*·.·*·.·*·.·* <span class="geo-sparkle">✦</span></p>
-                  <p class="geo-name">✦&nbsp;&nbsp;Taiao Kawiti&nbsp;&nbsp;✦</p>
-                  <p class="geo-est">Cool Website <span class="geo-sparkle geo-sparkle--slow">🌟</span></p>
-                  <p class="geo-border"><span class="geo-sparkle geo-sparkle--slow">✦</span> *·.·*·.·*·.·*·.·*·.·*·.·* <span class="geo-sparkle geo-sparkle--slow">✦</span></p>
-                  <p class="geo-welcome">✨ Thank You for Visiting ✨</p>
-                  <div class="geo-links-row">
-                    <img src="gifs/email-me.gif" alt="" class="geo-gif" aria-hidden="true" />
-                    <ul class="geo-links">
-                      <li><a href="https://www.linkedin.com/in/taiaokawiti/" target="_blank" rel="noreferrer">linkedin</a></li>
-                      <li><a href="https://github.com/taiaok" target="_blank" rel="noreferrer">github</a></li>
-                      <li><a href="mailto:taiaokawiti@protonmail.com">email</a></li>
-                      <li><a href="https://drive.google.com/file/d/1zjem4-QiNG7nTFVuyYzFT6_3i2_NTbZA/view?usp=sharing" target="_blank" rel="noreferrer">cv</a></li>
-                    </ul>
-                    <img src="gifs/thanks_bigclr.gif" alt="" class="geo-gif" aria-hidden="true" />
-                  </div>
-                  <p class="geo-border" style="margin-top:0.85rem"><span class="geo-sparkle">✦</span> *·.·*·.·*·.·*·.·*·.·*·.·* <span class="geo-sparkle">✦</span></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="transport">
+        <button id="playBtn">▶ Play reel</button>
+        <span id="clipName">title_card</span>
+        <a class="export" href="#contact">Export → Let's talk</a>
       </div>
-      <!-- ─── FOOTER ──────────────────────────────────────────── -->
-      <footer>taiao kawiti &mdash; 2026</footer>
-    </section>
+      <div class="editor" id="editor">
+        <div class="ruler"><span>00:00</span><span>00:30</span><span>01:00</span><span>01:30</span><span>02:00</span></div>
+        <div class="track"><div class="track-label">T1</div><div class="lane">
+          <div class="clip t" data-i="0" style="left:0;width:14%">title_card</div>
+          <div class="clip t" data-i="5" style="left:56%;width:20%">photo_series.jpg</div>
+        </div></div>
+        <div class="track"><div class="track-label">V1</div><div class="lane">
+          <div class="clip v" data-i="1" style="left:14%;width:18%">brief.mov</div>
+          <div class="clip v" data-i="2" style="left:32%;width:24%">shoot_iwi.mov</div>
+          <div class="clip v" data-i="4" style="left:76%;width:24%">final_cut.mov</div>
+        </div></div>
+        <div class="track"><div class="track-label">A1</div><div class="lane">
+          <div class="clip a" data-i="3" style="left:48%;width:28%">sound_design.wav</div>
+        </div></div>
+        <div class="playhead" id="playhead"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-      (function () {
-        const sentinel = document.getElementById("nav-sentinel");
-        const nav = document.querySelector("nav");
-        if (sentinel && nav) {
-          new IntersectionObserver(
-            function (entries) {
-              nav.classList.toggle("is-stuck", !entries[0].isIntersecting);
-            },
-            { threshold: 0 },
-          ).observe(sentinel);
-        }
-      })();
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="label">contact</div>
+    <h2 class="huge" style="margin-top:18px">Let's talk about your project.</h2>
+    <p class="tagline">Advisory, delivery leadership, or a technical second opinion. Tell me what you're trying to do.</p>
+    <div class="contact-row">
+      <button class="btn" id="copyBtn">Copy email</button>
+      <span class="email" id="email">hello@yourdomain.nz</span>
+      <span class="copied" id="copied"></span>
+    </div>
+  </div>
+</section>
 
-      (async function () {
-        const bodyEl = document.getElementById("activity-body");
-        if (!bodyEl) return;
+<footer><div class="wrap"><span>© 2026 Taiao Kawiti</span><span>Te Whanganui-a-Tara, Aotearoa</span></div></footer>
+<div class="proto">PROTOTYPE · placeholder copy</div>
 
-        function timeAgo(dateStr) {
-          const s = (Date.now() - new Date(dateStr)) / 1000;
-          if (s < 3600) return Math.floor(s / 60) + "m ago";
-          if (s < 86400) return Math.floor(s / 3600) + "h ago";
-          return Math.floor(s / 86400) + "d ago";
-        }
-
-        try {
-          const res = await fetch(
-            "https://api.github.com/users/taiaok/events/public?per_page=15",
-          );
-          if (res.status >= 400) {
-            console.warn("GitHub API error:", res.status, res.statusText);
-            throw new Error();
-          }
-          const events = await res.json();
-          console.log("GitHub events fetched:", events.length);
-
-          const latest = events
-            .slice()
-            .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-            .find((e) => e.type !== "WatchEvent" && e.type !== "ForkEvent");
-          if (!latest) throw new Error();
-
-          const VERBS = [
-            "working on",
-            "refactoring",
-            "tinkering with",
-            "debugging",
-          ];
-          const verb = VERBS[Math.floor(Math.random() * VERBS.length)];
-          const repo = latest.repo.name.replace("taiaok/", "");
-          const url = "https://github.com/" + latest.repo.name;
-          bodyEl.innerHTML = `<span class="activity-prefix">last spotted ${verb} </span><span class="activity-row"><a class="activity-repo" href="${url}" target="_blank" rel="noreferrer">${repo}</a><span class="activity-meta"><span class="activity-sep"> · </span><span class="activity-time">${timeAgo(latest.created_at)}</span></span></span>`;
-        } catch {
-          const VERBS = [
-            "debugging",
-            "refactoring",
-            "tinkering with",
-            "working on",
-          ];
-          const verb = VERBS[Math.floor(Math.random() * VERBS.length)];
-          bodyEl.innerHTML = `<span class="activity-prefix">last spotted ${verb} </span><span class="activity-row"><a class="activity-repo" href="https://github.com/taiaok/portfolio" target="_blank" rel="noreferrer">portfolio</a><span class="activity-meta"><span class="activity-sep"> · </span><span class="activity-time">3d ago</span></span></span>`;
-        }
-      })();
-
-      (function () {
-        const introTyped = document.getElementById("intro-typed");
-        const introCursor = introTyped.nextElementSibling;
-        const neofetch = document.querySelector(".neofetch");
-        const heroPrompt = document.querySelector(".hero-prompt");
-        const heroCta = document.querySelector(".hero-cta");
-
-        const neoArt = neofetch.querySelector(".neo-art");
-        const neoInfoChildren = Array.from(
-          neofetch.querySelector(".neo-info").children,
-        );
-
-        neoArt.style.opacity = "0";
-        neoInfoChildren.forEach(function (el) {
-          el.style.opacity = "0";
-        });
-        heroPrompt.style.opacity = "0";
-        heroCta.style.opacity = "0";
-
-        function typeIntro(text, speed, onDone) {
-          let i = 0;
-          var t = setInterval(function () {
-            introTyped.textContent += text[i++];
-            if (i >= text.length) {
-              clearInterval(t);
-              if (onDone) onDone();
-            }
-          }, speed);
-        }
-
-        setTimeout(function () {
-          typeIntro("whoami", 90, function () {
-            introCursor.style.animation = "none";
-            introCursor.style.opacity = "0";
-
-            var delay = 120;
-            var step = 50;
-
-            // Art and header appear together (same visual row)
-            setTimeout(function () {
-              neoArt.style.opacity = "1";
-            }, delay);
-            setTimeout(function () {
-              neoInfoChildren[0].style.opacity = "1";
-            }, delay);
-            delay += step;
-
-            // Remaining info rows
-            neoInfoChildren.slice(1).forEach(function (el) {
-              setTimeout(function () {
-                el.style.opacity = "1";
-              }, delay);
-              delay += step;
-            });
-
-            // Prompt snaps in, CTA fades in
-            setTimeout(function () {
-              heroPrompt.style.opacity = "1";
-            }, delay + 60);
-            setTimeout(function () {
-              heroCta.style.transition = "opacity 0.5s ease";
-              heroCta.style.opacity = "1";
-            }, delay + 120);
-          });
-        }, 500);
-      })();
-
-      (function () {
-        const typed = document.getElementById("prompt-typed");
-        const btns = document.querySelectorAll(".hero-cta a[data-cmd]");
-        let timer = null;
-
-        function clear() {
-          clearInterval(timer);
-          typed.textContent = "";
-        }
-
-        function type(text, onDone) {
-          clear();
-          let i = 0;
-          timer = setInterval(function () {
-            typed.textContent += text[i++];
-            if (i >= text.length) {
-              clearInterval(timer);
-              if (onDone) onDone();
-            }
-          }, 35);
-        }
-
-        const isTouch = window.matchMedia(
-          "(hover: none) and (pointer: coarse)",
-        ).matches;
-
-        if (isTouch) {
-          btns.forEach(function (btn) {
-            btn.addEventListener("click", function (e) {
-              e.preventDefault();
-              const href = this.getAttribute("href");
-              type(this.dataset.cmd, function () {
-                setTimeout(function () {
-                  window.location.href = href;
-                }, 150);
-              });
-            });
-          });
-        } else {
-          btns.forEach(function (btn) {
-            btn.addEventListener("mouseenter", function () {
-              type(this.dataset.cmd);
-            });
-            btn.addEventListener("mouseleave", clear);
-          });
-        }
-      })();
-
-      // ─── PACMAN DIVIDERS ──────────────────────────────────────
-      (function () {
-        const BAR = 24; // inner width between [ and ]
-        let ch = 0;
-
-        function render(p, right) {
-          const pos = Math.round(p * (BAR - 1));
-          const remaining = BAR - pos - 1;
-          // Chomp: alternate open/closed mouth each scroll tick
-          const pac = right ? (ch % 2 ? "c" : "C") : ch % 2 ? "c" : "ɔ";
-          // Dots fill ahead of pacman: ' o o o...' trimmed to remaining chars
-          const dots =
-            remaining <= 0
-              ? ""
-              : remaining === 1
-                ? "o"
-                : " o".repeat(Math.ceil(remaining / 2)).slice(0, remaining);
-          return { l: "[" + "-".repeat(pos), pac, dots };
-        }
-
-        const divs = [...document.querySelectorAll(".pacman-divider")];
-        let prev = window.scrollY,
-          right = true;
-
-        function tick() {
-          const sy = window.scrollY;
-          if (sy !== prev) {
-            right = sy > prev;
-            prev = sy;
-            ch++;
-          }
-          divs.forEach((d) => {
-            const above = document.getElementById(d.dataset.above);
-            const below = document.getElementById(d.dataset.below);
-            if (!above || !below) return;
-            const p = Math.max(
-              0,
-              Math.min(
-                1,
-                (sy - above.offsetTop) / (below.offsetTop - above.offsetTop),
-              ),
-            );
-            const { l, pac, dots } = render(p, right);
-            d.querySelector(".pd-l").textContent = l;
-            d.querySelector(".pd-p").textContent = pac;
-            d.querySelector(".pd-d").textContent = dots;
-          });
-        }
-
-        window.addEventListener("scroll", tick, { passive: true });
-        window.addEventListener("resize", tick);
-        tick();
-      })();
-    </script>
-  </body>
+<script src="js/main.js"></script>
+</body>
 </html>
