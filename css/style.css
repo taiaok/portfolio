@@ -30,13 +30,15 @@
   --panel: var(--ctp-mantle);
   --panel-2: var(--ctp-surface0);
   --ink: var(--ctp-text);
-  --text: var(--ctp-text);
   --muted: var(--ctp-overlay2);
   --line: var(--ctp-surface1);
+  --line-2: var(--ctp-surface2);
   --accent: var(--ctp-blue);
   --accent-soft: color-mix(in srgb, var(--accent) 12%, transparent);
   --green: var(--ctp-green);
   --yellow: var(--ctp-yellow);
+  --red: var(--ctp-red);
+  --lavender: var(--ctp-lavender);
   --sans: "IBM Plex Sans", system-ui, sans-serif;
   --display: "Iosevka", ui-monospace, monospace;
   --mono: "IBM Plex Mono", ui-monospace, monospace;
@@ -74,6 +76,33 @@ input {
   max-width: 1080px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+/* stack: every panel shares one grid cell, so the box is sized for the longest and never resizes; only .on shows */
+.stack {
+  display: grid;
+}
+.stack > * {
+  grid-area: 1/1;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s,
+    visibility 0.25s;
+}
+.stack > .on {
+  opacity: 1;
+  visibility: visible;
+}
+/* nudges to click: retired (.gone) after the first click */
+.hint {
+  transition:
+    opacity 0.3s,
+    visibility 0.3s;
+}
+.hint.gone {
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* header */
@@ -157,19 +186,18 @@ nav a.nl:hover {
 
 /* section dividers: a short centred rule instead of a full-width border */
 section {
+  padding: clamp(120px, 18vh, 200px) 0;
   background: linear-gradient(var(--line), var(--line)) center top/25% 1px no-repeat;
 }
 #hero,
 #about {
   background: none;
 }
-section {
-  padding: clamp(120px, 18vh, 200px) 0;
-}
 
 /* hero */
 #hero {
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -197,7 +225,7 @@ section {
   font-size: clamp(17px, 1.8vw, 21px);
   max-width: 760px;
   margin-top: 28px;
-  color: var(--text);
+  color: var(--ink);
 }
 .scroll-hint {
   display: flex;
@@ -236,7 +264,7 @@ section {
 .about-body {
   margin-top: 40px;
   max-width: 720px;
-  color: var(--text);
+  color: var(--ink);
   font-size: 15px;
 }
 /* about: centred column, text stays left-aligned */
@@ -258,7 +286,7 @@ h2 {
 }
 .lede {
   max-width: 640px;
-  color: var(--text);
+  color: var(--ink);
   font-size: 15px;
 }
 /* intro text left, Āhau logo right; on phones the logo sits above the heading */
@@ -341,6 +369,7 @@ h2 {
   align-items: center;
   white-space: nowrap;
   overflow: hidden;
+  text-align: left;
   cursor: pointer;
   transition:
     transform 0.15s,
@@ -349,6 +378,10 @@ h2 {
 }
 .bar:hover {
   transform: translateY(-2px);
+}
+.bar:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 /* nudge to click a milestone: a mouse pointer clicking under the 2nd bar, gone after the first click */
 .rm-hint {
@@ -359,9 +392,6 @@ h2 {
   width: 16px;
   height: 22px;
   pointer-events: none;
-  transition:
-    opacity 0.3s,
-    visibility 0.3s;
 }
 .rm-hint svg {
   display: block;
@@ -382,10 +412,6 @@ h2 {
   border-radius: 50%;
   opacity: 0;
   animation: ring 1.6s ease-out infinite;
-}
-.rm-hint.gone {
-  opacity: 0;
-  visibility: hidden;
 }
 @keyframes click {
   0%,
@@ -421,7 +447,7 @@ h2 {
     animation: none;
   }
 }
-.bar.active {
+.bar[aria-pressed="true"] {
   background: var(--accent);
   color: var(--bg);
   border-color: var(--accent);
@@ -430,11 +456,10 @@ h2 {
   margin-top: 24px;
   border-top: 1px solid var(--line);
   padding-top: 24px;
-  min-height: 110px;
   max-width: 840px;
   margin-left: auto;
   margin-right: auto;
-  color: var(--text);
+  color: var(--ink);
   font-size: 15px;
 }
 /* phones: no name column, bars keep their time position but wrap instead of clipping */
@@ -470,7 +495,7 @@ h2 {
   }
 }
 
-/* dev = two tiled windows: intro note + interactive terminal */
+/* dev = section intro, then the interactive terminal */
 #dev {
   padding: clamp(90px, 12vh, 140px) 0;
   position: relative;
@@ -498,15 +523,10 @@ h2 {
 .pacbar .pm {
   color: var(--yellow);
 }
-.wm {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-}
 .win {
   display: flex;
   flex-direction: column;
-  border: 2px solid var(--ctp-surface2);
+  border: 2px solid var(--line-2);
   border-radius: 8px;
   background: var(--panel);
   overflow: hidden;
@@ -530,16 +550,7 @@ h2 {
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background: var(--ctp-surface2);
-}
-.win-in {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: clamp(22px, 3vw, 36px);
-}
-.win-in h2 {
-  margin-top: auto;
+  background: var(--line-2);
 }
 .term-body {
   padding: clamp(22px, 3vw, 36px);
@@ -548,24 +559,15 @@ h2 {
   cursor: text;
 }
 .t-p {
-  color: var(--text);
+  color: var(--ink);
   max-width: 620px;
   font-size: 15px;
 }
-/* readme drops its window chrome and reads as the section intro above the terminal */
-.win-note {
-  border: none;
-  background: none;
-}
-.win-note .win-bar {
-  display: none;
-}
-.win-note .win-in {
-  padding: 0 0 24px;
+.dev-intro {
   max-width: 720px;
+  padding-bottom: 36px;
 }
 .t-hint {
-  margin-top: auto;
   padding-top: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -576,7 +578,7 @@ h2 {
   font-size: 13px;
   background: transparent;
   color: var(--ink);
-  border: 1px solid var(--ctp-surface2);
+  border: 1px solid var(--line-2);
   border-radius: var(--r);
   padding: 6px 11px;
   cursor: pointer;
@@ -592,7 +594,7 @@ h2 {
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: thin;
-  scrollbar-color: var(--ctp-surface2) transparent;
+  scrollbar-color: var(--line-2) transparent;
   margin-top: 12px;
 }
 #termOut a {
@@ -607,7 +609,7 @@ h2 {
 }
 .tbl i {
   font-style: normal;
-  color: var(--ctp-surface2);
+  color: var(--line-2);
 }
 .tbl-list {
   display: none;
@@ -625,7 +627,7 @@ h2 {
   display: block;
 }
 .t-dir {
-  color: var(--ctp-blue);
+  color: var(--accent);
 }
 .t-ls {
   display: grid;
@@ -668,7 +670,7 @@ h2 {
   min-width: 0;
 }
 .t-err {
-  color: var(--ctp-red);
+  color: var(--red);
 }
 /* narrower screens: the prompt and output scroll together (no stuck command line); same overall size as before */
 @media (max-width: 800px) {
@@ -677,7 +679,7 @@ h2 {
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: thin;
-    scrollbar-color: var(--ctp-surface2) transparent;
+    scrollbar-color: var(--line-2) transparent;
   }
   #termOut {
     height: auto;
@@ -705,12 +707,12 @@ h2 {
   background:
     linear-gradient(
       to top,
-      color-mix(in srgb, var(--ctp-base) 95%, transparent),
-      color-mix(in srgb, var(--ctp-base) 70%, transparent) 50%,
-      color-mix(in srgb, var(--ctp-base) 20%, transparent)
+      color-mix(in srgb, var(--bg) 95%, transparent),
+      color-mix(in srgb, var(--bg) 70%, transparent) 50%,
+      color-mix(in srgb, var(--bg) 20%, transparent)
     ),
     var(--shot) center/cover no-repeat,
-    var(--ctp-base);
+    var(--bg);
 }
 .monitor::after {
   content: "";
@@ -720,24 +722,11 @@ h2 {
   pointer-events: none;
 }
 .tc b {
-  color: var(--ctp-red);
+  color: var(--red);
   font-weight: 400;
 }
-.caps {
-  display: grid;
-}
 .cap {
-  grid-area: 1/1;
   align-self: end;
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.25s,
-    visibility 0.25s;
-}
-.cap.on {
-  opacity: 1;
-  visibility: visible;
 }
 .monitor h3 {
   font-family: var(--display);
@@ -748,14 +737,14 @@ h2 {
   max-width: 900px;
 }
 .monitor p {
-  color: var(--ctp-text);
+  color: var(--ink);
   max-width: 620px;
   margin-top: 16px;
   font-size: 15px;
 }
 .monitor h3,
 .monitor p {
-  text-shadow: 0 1px 14px color-mix(in srgb, var(--ctp-base) 70%, transparent);
+  text-shadow: 0 1px 14px color-mix(in srgb, var(--bg) 70%, transparent);
 }
 /* phones: caption fills the frame, so centre it and shade the whole shot */
 @media (max-width: 700px) {
@@ -767,11 +756,11 @@ h2 {
     background:
       radial-gradient(
         ellipse at center,
-        color-mix(in srgb, var(--ctp-base) 90%, transparent),
-        color-mix(in srgb, var(--ctp-base) 72%, transparent)
+        color-mix(in srgb, var(--bg) 90%, transparent),
+        color-mix(in srgb, var(--bg) 72%, transparent)
       ),
       var(--shot) center/cover no-repeat,
-      var(--ctp-base);
+      var(--bg);
   }
   .monitor p {
     margin-inline: auto;
@@ -785,7 +774,7 @@ h2 {
   justify-content: flex-end;
   padding: 10px 16px;
   font-size: 12px;
-  color: var(--ctp-overlay2);
+  color: var(--muted);
 }
 .tc {
   white-space: nowrap;
@@ -796,13 +785,6 @@ h2 {
   text-align: center;
   font-size: 16px;
   color: var(--yellow);
-  transition:
-    opacity 0.3s,
-    visibility 0.3s;
-}
-.reel-hint.gone {
-  opacity: 0;
-  visibility: hidden;
 }
 .hint-short {
   display: none;
@@ -830,7 +812,7 @@ h2 {
   }
 }
 .editor {
-  background: var(--ctp-base);
+  background: var(--bg);
   padding: 6px 14px 18px;
   position: relative;
   user-select: none;
@@ -839,7 +821,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   font-size: 10px;
-  color: var(--ctp-surface2);
+  color: var(--line-2);
   margin: 0 0 8px 46px;
 }
 .track {
@@ -851,7 +833,7 @@ h2 {
 .track-label {
   width: 46px;
   font-size: 11px;
-  color: var(--ctp-overlay2);
+  color: var(--muted);
 }
 @media (max-width: 700px) {
   .track-label {
@@ -865,7 +847,7 @@ h2 {
   position: relative;
   flex: 1;
   height: 100%;
-  background: var(--ctp-surface1);
+  background: var(--line);
   border-radius: var(--r);
 }
 /* filmstrip: the clip's photo tiles along its length at track height */
@@ -878,16 +860,16 @@ h2 {
   border-radius: var(--r);
   overflow: hidden;
   cursor: pointer;
-  background-color: color-mix(in srgb, var(--ctp-lavender) 35%, transparent);
+  background-color: color-mix(in srgb, var(--lavender) 35%, transparent);
   background-size: auto 100%;
   background-repeat: repeat-x;
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ctp-base) 60%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--bg) 60%, transparent);
   transition: filter 0.15s;
 }
 .clip:hover {
   filter: brightness(1.12);
 }
-.clip.active {
+.clip[aria-pressed="true"] {
   outline: 2px solid var(--ink);
   outline-offset: -1px;
 }
@@ -944,7 +926,6 @@ h2 {
   margin: 48px auto 0;
 }
 .socials a {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -965,15 +946,6 @@ h2 {
 .socials svg {
   width: clamp(40px, 9vw, 72px);
   height: auto;
-}
-.copied {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-size: 12px;
-  color: var(--accent);
 }
 footer {
   border-top: 1px solid var(--line);
