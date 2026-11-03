@@ -536,19 +536,20 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 14px;
+  padding: 4px 12px;
   background: var(--panel-2);
   border-bottom: 1px solid var(--line);
   font-size: 12px;
+  line-height: 1.4;
   color: var(--muted);
 }
 .win-btns {
   display: flex;
-  gap: 7px;
+  gap: 6px;
 }
 .win-btns i {
-  width: 11px;
-  height: 11px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background: var(--line-2);
 }
@@ -954,8 +955,5 @@ footer {
   color: var(--muted);
 }
 footer .wrap {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
+  text-align: center;
 }
