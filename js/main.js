@@ -116,8 +116,6 @@ addEventListener('resize',()=>{const a=document.querySelector('.clip.active');if
 // CONTACT
 // email tile copies the address; if the clipboard is blocked, fall through to the mailto link
 const emailLink=document.getElementById('emailLink');
-// the address isn't in the HTML: it's stored reversed (not email-shaped, so scrapers' regexes miss it) and assembled here
-emailLink.href='mailto:'+'moc.liamnotorp@itiwakoaiat'.split('').reverse().join('');
 emailLink.addEventListener('click',async e=>{e.preventDefault();const c=document.getElementById('copied');
   try{await navigator.clipboard.writeText(emailLink.href.replace('mailto:',''));c.textContent='copied ✓';setTimeout(()=>c.textContent='',2000);}
   catch(err){location.href=emailLink.href;}});
