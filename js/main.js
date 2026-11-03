@@ -4,14 +4,13 @@ addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>innerHeigh
 
 // ROADMAP
 const rm=[
-  {p:"The project had moving parts and no shared picture of where things stood.",d:"Ran a technical audit and scoped what was actually needed before more got built.",o:"A clear baseline everyone could plan from."},
-  {p:"No one owned delivery. Decisions stalled or happened by accident.",d:"Proposed and structured a delivery lead role, with a plan and clear decision points.",o:"Formalised as Delivery Lead from June 2026."},
-  {p:"A junior developer carrying a lot without much support.",d:"Paired, reviewed and coached, and shifted trust gradually as skills grew.",o:"A stronger build team that doesn't depend on me."},
-  {p:"Long technical stretches can look like nothing is happening.",d:"Planned work so there were demoable milestones, not just progress hidden in tickets.",o:"Stakeholders can see momentum and trust the timeline."}
+  "The project had moving parts and no shared picture of where things stood. I ran a technical audit and scoped what was actually needed before more got built, which gave everyone a clear baseline to plan from.",
+  "No one owned delivery, so decisions stalled or happened by accident. I proposed a delivery lead role with a plan and clear decision points, and it was formalised in June 2026.",
+  "A junior developer was carrying a lot without much support. I paired, reviewed and coached, shifting trust gradually as their skills grew, so the build team no longer depends on me.",
+  "Long technical stretches can look like nothing is happening. I planned the work around demoable milestones rather than progress hidden in tickets, so stakeholders can see momentum and trust the timeline."
 ];
 const bars=[...document.querySelectorAll('.bar')], rmD=document.getElementById('rmDetail');
-function showRm(i){bars.forEach(b=>b.classList.toggle('active',+b.dataset.i===i));const r=rm[i];
-  rmD.innerHTML=`<div><h4>Problem</h4><p>${r.p}</p></div><div><h4>Decision</h4><p>${r.d}</p></div><div><h4>Outcome</h4><p>${r.o}</p></div>`;}
+function showRm(i){bars.forEach(b=>b.classList.toggle('active',+b.dataset.i===i));rmD.textContent=rm[i];}
 bars.forEach(b=>b.addEventListener('click',()=>showRm(+b.dataset.i)));showRm(1);
 
 // TERMINAL
@@ -60,9 +59,9 @@ function showClip(i,el){cEls.forEach(c=>c.classList.toggle('active',c===el));cn.
   tc.textContent='00:0'+Math.floor(s/60)+':'+String(s%60).padStart(2,'0')+':00';}
 const order=[...cEls].sort((a,b)=>parseFloat(a.style.left)-parseFloat(b.style.left));
 let timer=null,pos=0;
-function stop(){clearInterval(timer);timer=null;pb.textContent='▶ Play reel';}
+function stop(){clearInterval(timer);timer=null;pb.textContent='▶ play reel';}
 function step(){pos=(pos+1)%order.length;showClip(+order[pos].dataset.i,order[pos]);}
-pb.addEventListener('click',()=>{if(timer){stop();return;}pb.textContent='❚❚ Pause';step();timer=setInterval(step,3800);});
+pb.addEventListener('click',()=>{if(timer){stop();return;}pb.textContent='❚❚ pause';step();timer=setInterval(step,3800);});
 cEls.forEach(c=>c.addEventListener('click',()=>{stop();pos=order.indexOf(c);showClip(+c.dataset.i,c);}));
 requestAnimationFrame(()=>showClip(0,order[0]));
 addEventListener('resize',()=>{const a=document.querySelector('.clip.active');if(a)showClip(+a.dataset.i,a);});

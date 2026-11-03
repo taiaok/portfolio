@@ -6,20 +6,20 @@
 <title>Taiao Kawiti — portfolio prototype</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header id="hdr">
   <div class="wrap">
-    <a href="#hero" class="mark">Taiao Kawiti</a>
+    <a href="#hero" class="mark">taiao kawiti</a>
     <nav>
       <a class="nl" href="#about">about</a>
       <a class="nl" href="#work">working on</a>
       <a class="nl" href="#dev">dev</a>
       <a class="nl" href="#creative">creative</a>
-      <a class="btn" href="#contact">Work with me</a>
+      <a class="btn" href="#contact">work with me</a>
     </nav>
   </div>
 </header>
@@ -27,17 +27,17 @@
 <!-- HERO -->
 <section id="hero">
   <div class="wrap">
-    <div class="label">Delivery · Technology · Story</div>
-    <h1 class="huge" style="margin-top:18px">Taiao<br>Kawiti</h1>
+    <div class="who"><span class="prompt">$</span> whoami</div>
+    <h1 class="huge">taiao<br>kawiti<span class="cursor" aria-hidden="true"></span></h1>
     <p class="tagline">Delivery lead bridging technology, creative work and Māori communities. I help projects get from idea to something real, without losing the people along the way.</p>
     <div class="chips">
-      <a class="chip" href="#work">→ Delivery</a>
-      <a class="chip" href="#dev">→ Technology</a>
-      <a class="chip" href="#creative">→ Story</a>
+      <a class="chip" href="#work">→ delivery</a>
+      <a class="chip" href="#dev">→ technology</a>
+      <a class="chip" href="#creative">→ story</a>
     </div>
     <div class="hero-actions">
-      <a class="btn" href="#contact">Work with me</a>
-      <a class="btn ghost" href="#work">See what I'm working on</a>
+      <a class="btn" href="#contact">work with me</a>
+      <a class="btn ghost" href="#work">see what i'm working on</a>
       <span class="scroll-hint">↓ or scroll</span>
     </div>
   </div>
@@ -46,8 +46,7 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="wrap">
-    <div class="label">who am i?</div>
-    <p class="big" style="margin-top:18px">I sit where <em>technology</em>, <em>story</em> and <em>community</em> meet, and I make sure the work actually lands.</p>
+    <p class="big">I sit where <em>technology</em>, <em>story</em> and <em>community</em> meet, and I make sure the work actually lands.</p>
     <div class="about-body">
       <p>Ngāpuhi, Ngāti Hine, based in Te Whanganui-a-Tara. I started out behind a camera, moved into software, and now lead delivery: shaping scope, steering technical decisions and mentoring the people doing the build.</p>
       <p>My focus is technology that serves Māori and underserved communities: data sovereignty, tech literacy and ethical AI. I'm the person who asks the awkward question early so it doesn't become an expensive problem later.</p>
@@ -59,7 +58,6 @@
 <!-- WORKING ON -->
 <section id="work">
   <div class="wrap">
-    <div class="label">working on</div>
     <h2>Āhau</h2>
     <p class="lede">Delivery Lead on a kaupapa Māori app. Click a milestone to see the problem, the call I made and what came of it. <span style="color:var(--muted)">(Placeholder copy, swap in the real story.)</span></p>
 
@@ -80,7 +78,7 @@
 <section id="dev">
   <div class="wrap">
     <div class="term">
-      <div class="term-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="t">taiao@kawiti: ~/dev — past stuff</span></div>
+      <div class="term-bar"><span class="t">taiao@kawiti: ~/dev — past stuff</span></div>
       <div class="term-body" id="termBody">
         <div><span class="prompt">taiao@kawiti</span>:~/dev$ <span class="cmd">cat README.md</span></div>
         <h2 class="t-h">I was a developer.<br>I still think like one.</h2>
@@ -112,9 +110,9 @@
         <p id="monText"></p>
       </div>
       <div class="transport">
-        <button id="playBtn">▶ Play reel</button>
+        <button id="playBtn">▶ play reel</button>
         <span id="clipName">title_card</span>
-        <a class="export" href="#contact">Export → Let's talk</a>
+        <a class="export" href="#contact">export → let's talk</a>
       </div>
       <div class="editor" id="editor">
         <div class="ruler"><span>00:00</span><span>00:30</span><span>01:00</span><span>01:30</span><span>02:00</span></div>
@@ -139,11 +137,10 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
-    <div class="label">contact</div>
-    <h2 class="huge" style="margin-top:18px">Let's talk about your project.</h2>
+    <h2 class="huge">Let's talk about your project.</h2>
     <p class="tagline">Advisory, delivery leadership, or a technical second opinion. Tell me what you're trying to do.</p>
     <div class="contact-row">
-      <button class="btn" id="copyBtn">Copy email</button>
+      <button class="btn" id="copyBtn">copy email</button>
       <span class="email" id="email">hello@yourdomain.nz</span>
       <span class="copied" id="copied"></span>
     </div>
