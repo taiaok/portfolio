@@ -33,6 +33,8 @@ jobs:
           cp CNAME _site/
           cp -r gifs _site/
           cp -r reel _site/
+          cp -r fonts icons logos _site/
+          cp favicon.ico _site/
 
       - uses: actions/upload-pages-artifact@v3
         with:

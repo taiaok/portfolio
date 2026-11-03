@@ -3,10 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Taiao Kawiti — portfolio prototype</title>
+<title>Taiao Kawiti - delivery, dev &amp; creative</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -19,7 +22,7 @@
       <a class="nl" href="#work">working on</a>
       <a class="nl" href="#dev">dev</a>
       <a class="nl" href="#creative">creative</a>
-      <a class="btn" href="#contact">work with me</a>
+      <a class="btn" href="#contact">let's kōrero</a>
     </nav>
   </div>
 </header>
@@ -28,54 +31,63 @@
 <section id="hero">
   <div class="wrap">
     <h1 class="huge">taiao<br>kawiti</h1>
-    <p class="tagline">Delivery lead bridging technology, creative work and Māori communities. I help projects get from idea to something real, without losing the people along the way.</p>
-    <a class="scroll-hint" href="#about" aria-label="scroll to about">↓</a>
+    <p class="tagline">Developer, delivery lead and storyteller. I help good ideas become really good, and then make them real.</p>
+    <a class="scroll-hint" href="#about" aria-label="scroll to about"><img src="gifs/pointdown.gif" width="35" height="75" alt=""></a>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
   <div class="wrap">
-    <p class="big">I sit where <em>technology</em>, <em>story</em> and <em>community</em> meet, and I make sure the work actually lands.</p>
-    <p class="about-body">Ngāpuhi, Ngāti Hine, based in Te Whanganui-a-Tara. I started out behind a camera, moved into software, and now lead delivery: shaping scope, steering technical decisions and mentoring the people doing the build. My focus is technology that serves Māori and underserved communities: data sovereignty, tech literacy and ethical AI. I'm the person who asks the awkward question early so it doesn't become an expensive problem later.</p>
-    <div class="sec-cta"><a href="#contact">Sound like what your project needs? →</a></div>
+    <p class="big">What I do</p>
+    <p class="about-body">Kia ora, I'm Taiao (Ngāpuhi, Ngāti Hine), based in Te Whanganui-a-Tara. I started out behind a camera, got into software, and these days I'm leading project delivery. I’m all about the warm fuzzies and want to use my skills to make the world a better place - for Māori, disadvantaged communities, and humans everywhere. Right now that looks like building tech literacy and delivering kaupapa centred tools with <a href="https://ahau.io" target="_blank" rel="noopener">Āhau</a>.</p>
   </div>
 </section>
 
 <!-- WORKING ON -->
 <section id="work">
   <div class="wrap">
-    <h2>Making it happen.</h2>
-    <p class="lede">I'm currently working as the delivery lead for <a href="https://ahau.io" target="_blank" rel="noopener">Āhau</a>, a kaupapa Māori genealogy app. I'm leading out the implementation of new features and maintenance as the primary developer, as well as managing milestones and mentorship.</p>
+    <div class="work-intro">
+      <div class="work-text">
+        <h2>What I'm working on</h2>
+        <p class="lede">Right now I'm the delivery lead for <a href="https://ahau.io" target="_blank" rel="noopener">Āhau</a>, a kaupapa Māori whakapapa app. I'm the main developer on new features and maintenance, and I also look after milestones and mentor our junior dev.</p>
+      </div>
+      <img class="work-logo" src="logos/ahau.svg" alt="Āhau logo">
+    </div>
 
     <div class="roadmap">
       <div class="rm-head"><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span></div>
-      <div class="rm-row"><div class="rm-name">Discovery</div><div class="rm-track"><div class="bar" data-i="0" style="left:0;width:30%">Audit &amp; scope</div></div></div>
-      <div class="rm-row"><div class="rm-name">Structure</div><div class="rm-track"><div class="bar" data-i="1" style="left:18%;width:32%">Delivery role &amp; plan</div></div></div>
-      <div class="rm-row"><div class="rm-name">People</div><div class="rm-track"><div class="bar" data-i="2" style="left:32%;width:60%">Mentoring the build team</div></div></div>
-      <div class="rm-row"><div class="rm-name">Ship</div><div class="rm-track"><div class="bar" data-i="3" style="left:60%;width:38%">Visible progress</div></div></div>
+      <div class="rm-row"><div class="rm-name">Discovery</div><div class="rm-track"><div class="bar" data-i="0" style="left:0;width:30%">Figuring it out</div></div></div>
+      <div class="rm-row"><div class="rm-name">Structure</div><div class="rm-track"><div class="bar" data-i="1" style="left:18%;width:32%">Creating structure</div></div></div>
+      <div class="rm-row"><div class="rm-name">People</div><div class="rm-track"><div class="bar" data-i="2" style="left:32%;width:60%">Building capability</div></div></div>
+      <div class="rm-row"><div class="rm-name">Ship</div><div class="rm-track"><div class="bar" data-i="3" style="left:60%;width:38%">Making it visible</div></div></div>
     </div>
     <div class="rm-detail" id="rmDetail"></div>
 
-    <div class="sec-cta"><a href="#contact">Got a project like this? →</a></div>
   </div>
 </section>
 
 <!-- DEV -->
 <section id="dev">
   <div class="wrap">
-    <div class="term">
-      <div class="term-bar"><span class="t">taiao@kawiti: ~/dev — past stuff</span></div>
-      <div class="term-body" id="termBody">
-        <div><span class="prompt">taiao@kawiti</span>:~/dev$ <span class="cmd">cat README.md</span></div>
-        <h2 class="t-h">On or off the tools.</h2>
-        <p class="t-p">3 years of experience as a software developer, and many more as an enthusiast. I've shipped Rails features in the energy industry, kept payment systems running on a mainframe, and build my own tools on Linux.</p>
-        <div class="t-hint" id="cmds">
-          <button data-c="cat experience.md">experience</button>
-          <button data-c="ls side-projects/">side projects</button>
+    <div class="wm">
+      <div class="win win-note">
+        <div class="win-bar"><span>readme.md</span><span class="win-btns" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="win-in">
+          <h2>On or off the tools</h2>
+          <p class="t-p">Three years as a software developer and a nerd about it for much longer. I've shipped Rails features in the energy sector, kept payments running on a mainframe, and I build my own tools on Linux for fun.</p>
+          <div class="t-hint" id="cmds">
+            <button data-c="cat experience.md">experience</button>
+            <button data-c="ls side-projects/">side projects</button>
+          </div>
         </div>
-        <div id="termOut"></div>
-        <div class="t-input-line"><span class="prompt">taiao@kawiti</span>:~/dev$ <input id="termIn" aria-label="terminal input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="type help"></div>
+      </div>
+      <div class="win term">
+        <div class="win-bar"><span>~</span><span class="win-btns" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="term-body" id="termBody">
+          <div class="t-input-line"><span class="prompt">~</span><input id="termIn" aria-label="terminal input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="type help"></div>
+          <div id="termOut"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -84,11 +96,10 @@
 <!-- CREATIVE -->
 <section id="creative">
   <div class="wrap">
-    <div class="nle">
-      <div class="nle-bar"><span class="t">taiao_reel — creative</span></div>
+    <div class="win">
+      <div class="win-bar"><span>taiao_reel</span><span class="win-btns" aria-hidden="true"><i></i><i></i><i></i></span></div>
       <div class="monitor" id="monitor">
-        <h3 id="monTitle"></h3>
-        <p id="monText"></p>
+        <div class="caps" id="caps"></div>
       </div>
       <div class="transport"><span class="tc"><b>●</b> <span id="tc">00:00:00:00</span></span></div>
       <div class="editor" id="editor">
@@ -102,24 +113,31 @@
         <div class="playhead" id="playhead"></div>
       </div>
     </div>
+    <p class="reel-hint" id="reelHint"><span class="reel-arrow" aria-hidden="true">↑</span> <span class="hint-long">click through the timeline</span><span class="hint-short">tap!</span></p>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
-    <h2 class="huge">Let's talk about your project.</h2>
-    <p class="tagline">Advisory, delivery leadership, or a technical second opinion. Tell me what you're trying to do.</p>
-    <div class="contact-row">
-      <button class="btn" id="copyBtn">copy email</button>
-      <span class="email" id="email">hello@yourdomain.nz</span>
-      <span class="copied" id="copied"></span>
-    </div>
+    <h2 class="huge">Let's have a yarn</h2>
+    <p class="tagline">Need a hand or just want to say hi? Get in touch.</p>
+    <ul class="socials">
+      <li><a id="emailLink" href="mailto:taiaokawiti@protonmail.com" aria-label="copy email address">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>
+        <span class="copied" id="copied" aria-live="polite"></span>
+      </a></li>
+      <li><a href="https://github.com/taiaok" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a></li>
+      <li><a href="https://www.linkedin.com/in/taiaokawiti" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.064 2.064 0 1 1 0-4.128 2.064 2.064 0 0 1 0 4.128zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a></li>
+    </ul>
   </div>
 </section>
 
 <footer><div class="wrap"><span>© 2026 Taiao Kawiti</span><span>Te Whanganui-a-Tara, Aotearoa</span></div></footer>
-<div class="proto">PROTOTYPE · placeholder copy</div>
 
 <script src="js/main.js"></script>
 </body>

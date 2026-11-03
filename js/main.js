@@ -1,63 +1,90 @@
-// header border on scroll
-const hdr=document.getElementById('hdr');
-addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>innerHeight*0.6));
+// header slides in once the hero has scrolled out from under it
+const hdr=document.getElementById('hdr'),hero=document.getElementById('hero');
+const syncHdr=()=>hdr.classList.toggle('scrolled',scrollY>=hero.offsetHeight-hdr.offsetHeight);
+addEventListener('scroll',syncHdr,{passive:true});syncHdr();
 
 // ROADMAP
 const rm=[
-  "The project had moving parts and no shared picture of where things stood. I ran a technical audit and scoped what was actually needed before more got built, which gave everyone a clear baseline to plan from.",
-  "No one owned delivery, so decisions stalled or happened by accident. I proposed a delivery lead role with a plan and clear decision points, and it was formalised in June 2026.",
-  "A junior developer was carrying a lot without much support. I paired, reviewed and coached, shifting trust gradually as their skills grew, so the build team no longer depends on me.",
-  "Long technical stretches can look like nothing is happening. I planned the work around demoable milestones rather than progress hidden in tickets, so stakeholders can see momentum and trust the timeline."
+  "When I came on we had a mountain of legacy code to understand and no one who already did. So I did a technical audit and worked out what we actually needed before we built anything else. That gave everyone the same starting point.",
+  "Nobody owned delivery, so decisions weren't being made. I proposed a delivery lead role with a clear plan and decision points.",
+  "Our junior dev was carrying a lot without much backup. I pair, review and coach, and hand over more as their skills grow. The goal is a team that doesn't need me in every decision.",
+  "I'm planning our work around milestones we can actually show and funding goals, rather than progress buried in tickets."
 ];
 const bars=[...document.querySelectorAll('.bar')], rmD=document.getElementById('rmDetail');
 function showRm(i){bars.forEach(b=>b.classList.toggle('active',+b.dataset.i===i));rmD.textContent=rm[i];}
 bars.forEach(b=>b.addEventListener('click',()=>showRm(+b.dataset.i)));showRm(1);
 
 // TERMINAL
+const esc=s=>s.replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
+// console.table-style box: columns sized to their widest cell
+function table(head,rows){const all=[head,...rows],w=head.map((_,i)=>Math.max(...all.map(r=>r[i].length)));
+  const rule=(l,m,r)=>l+w.map(n=>'─'.repeat(n+2)).join(m)+r,row=r=>'│'+r.map((c,i)=>' '+c.padEnd(w[i])+' ').join('│')+'│';
+  const txt=esc([rule('┌','┬','┐'),row(head),rule('├','┼','┤'),...rows.map(row),rule('└','┴','┘')].join('\n'));
+  return '<span class="tbl">'+txt.replace(/[─│┌┬┐├┼┤└┴┘]+/g,m=>'<i>'+m+'</i>')+'</span>';}
+const jobs=[
+  ["Flick","2023–25","Rails apprentice"],
+  ["BNZ","2025–26","mainframe wizard"],
+  ["Āhau","2026–now","deliverer of deliverables"]
+];
+// values are HTML: plain text goes through esc()
 const out={
-  "cat experience.md":"# experience\nDevelopers Institute diploma: JavaScript, Node, React, Express.\nLinux by choice.\n\n## Flick Electric — 2023–2025\nSoftware engineer intern, Ruby on Rails.\nLearned how a small product team ships, and why\nvisible progress matters as much as the fix.\n\n## BNZ — 2025–2026\nTech graduate, domestic payments mainframe (COBOL/JCL).\nHigh-stakes systems where a mistake moves real money.\nLeft for more autonomy.",
-  "ls side-projects/":"fetch-plugin/     # Noctalia shell widget, system info on desktop + lock screen\nscam-buster/      # self-hosted scam-detection app, Node/Express\nportfolio/        # you are here",
-  "help":"commands: cat experience.md, ls side-projects/, clear"
+  // the table is too wide for phones, so a plain list of the same jobs is rendered alongside; CSS shows one
+  "cat experience.md":table(["(index)","years","role"],jobs)
+    +'<span class="tbl-list">'+esc(jobs.map(([co,yrs,role])=>co+' '+yrs+'\n  '+role).join('\n'))+'</span>'
+    +esc("Developers Institute diploma.\nJS, Node, React, Rails.\nArch linux btw."),
+  "ls side-projects/":esc("fetch-plugin/   # Noctalia system-info widget\nscam-buster/    # self-hosted scam checker\nportfolio/      # you are here"),
+  "help":esc("commands: cat experience.md, ls side-projects/, clear")
 };
 const tb=document.getElementById('termBody'),tOut=document.getElementById('termOut'),tIn=document.getElementById('termIn');let busy=false;
-const esc=s=>s.replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
-const pl='<span class="prompt">taiao@kawiti</span>:~/dev$ ';
 // each command replaces the previous output, so the box never grows
 async function run(c,typeIt){c=c.trim();if(busy||!c)return;busy=true;
   if(typeIt){tIn.value='';for(const ch of c){tIn.value+=ch;await new Promise(r=>setTimeout(r,30));}}
-  tIn.value='';
-  if(c==='clear'){tOut.innerHTML='';busy=false;return;}
-  const res=out[c]?esc(out[c]):'<span class="t-err">command not found: '+esc(c)+'</span>  (try help)';
-  tOut.innerHTML=pl+'<span class="cmd">'+esc(c)+'</span>\n'+res;
+  // the command stays on the prompt line above its output, like a real shell
+  if(c==='clear'){tIn.value='';tOut.innerHTML='';busy=false;return;}
+  const res=out[c]?out[c]:'<span class="t-err">command not found: '+esc(c)+'</span>  (try help)';
+  tOut.innerHTML=res;
+  tOut.scrollTop=0;
   busy=false;}
 document.querySelectorAll('#cmds button').forEach(b=>b.addEventListener('click',()=>run(b.dataset.c,true)));
+// focusing selects the last command, so typing replaces it
+tIn.addEventListener('focus',()=>tIn.select());
 tIn.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();run(tIn.value);}});
 tb.addEventListener('click',e=>{if(!e.target.closest('button,a'))tIn.focus({preventScroll:true});});
 
 // TIMELINE
 // img: drop a matching file into reel/ and the clip and monitor pick it up; until then they show a plain block
 const clips=[
-  {img:"reel/yourstories.jpg",t:"Understanding your stories.",x:"Years of shooting and editing for iwi organisations and small businesses taught me how creative production actually runs, from the brief to the final cut. Click through the timeline below."},
-  {img:"reel/ontheground.jpg",t:"On the ground",x:"Freelance videography for iwi organisations and small businesses, 2020–2022. Showing up, building trust, capturing people as they are."},
-  {img:"reel/littledetails.jpg",t:"The little details",x:"Sound design, music, and an eye for framing, light and composition. The parts nobody notices until they're wrong, and the reason a piece feels finished."},
-  {img:"reel/finalcut.jpg",t:"The final cut",x:"Shaping raw material into something with a beginning, a turn and an ending. Delivery, in another medium."}
+  {img:"reel/yourstories.jpg",t:"What the camera taught me",x:"Before software, I spent years shooting and editing for iwi organisations and small businesses. A lot of how I deliver projects now I learned there."},
+  {img:"reel/ontheground.jpg",t:"On the ground",x:"You get the best footage when everyone's comfortable. So I turn up, listen, and understand before deciding what to make. I start every project that way, whether it's a video or an app."},
+  {img:"reel/littledetails.jpg",t:"The little details",x:"The little things matter (and bother me) the most in the final stretch - framing, sound, border radius - and I’ve got a keen eye for them."},
+  {img:"reel/bigpicture.jpg",t:"The big picture",x:"The story needs to be coherent. Every endeavour needs a beginning, a turn and an end - and a way to get there."}
 ];
 const cEls=[...document.querySelectorAll('.clip')],ph=document.getElementById('playhead'),ed=document.getElementById('editor');
-const mt=document.getElementById('monTitle'),mx=document.getElementById('monText'),tc=document.getElementById('tc');
-const mon=document.getElementById('monitor');
+const tc=document.getElementById('tc'),mon=document.getElementById('monitor');
+// every caption is rendered up front and stacked in one grid cell, so the monitor is always sized
+// for the longest one and switching clips never resizes the panel; only the active caption is visible
+const caps=clips.map(c=>{const d=document.createElement('div');d.className='cap';
+  const h=document.createElement('h3');h.textContent=c.t;const p=document.createElement('p');p.textContent=c.x;
+  d.append(h,p);return d;});
+document.getElementById('caps').append(...caps);
 function showClip(i,el){cEls.forEach(c=>c.classList.toggle('active',c===el));
-  mon.classList.add('fade');setTimeout(()=>{mt.textContent=clips[i].t;mx.textContent=clips[i].x;mon.style.setProperty('--shot',`url(${new URL(clips[i].img,document.baseURI)})`);mon.classList.remove('fade');},180);
+  caps.forEach((c,j)=>c.classList.toggle('on',j===i));
+  mon.style.setProperty('--shot',`url(${new URL(clips[i].img,document.baseURI)})`);
   movePlayhead(el);}
 // position only: safe to call on resize without replaying the fade
 function movePlayhead(el){const er=ed.getBoundingClientRect(),cr=el.getBoundingClientRect();ph.style.left=(cr.left-er.left+8)+'px';
   const lane=el.parentElement.getBoundingClientRect();const s=Math.round((cr.left-lane.left)/lane.width*120);
   tc.textContent='00:0'+Math.floor(s/60)+':'+String(s%60).padStart(2,'0')+':00';}
 cEls.forEach(el=>{const c=clips[+el.dataset.i];el.style.backgroundImage=`url(${c.img})`;el.setAttribute('aria-label',c.t);});
-cEls.forEach(c=>c.addEventListener('click',()=>showClip(+c.dataset.i,c)));
+// hint retires on the first real click; the initial showClip below is programmatic, so it stays until then
+const reelHint=document.getElementById('reelHint');
+cEls.forEach(c=>c.addEventListener('click',()=>{reelHint.classList.add('gone');showClip(+c.dataset.i,c);}));
 requestAnimationFrame(()=>showClip(0,cEls[0]));
 addEventListener('resize',()=>{const a=document.querySelector('.clip.active');if(a)movePlayhead(a);});
 
 // CONTACT
-document.getElementById('copyBtn').addEventListener('click',async()=>{const c=document.getElementById('copied');
-  try{await navigator.clipboard.writeText(document.getElementById('email').textContent);c.textContent='copied ✓';}
-  catch(e){c.textContent='select the address to copy';}});
+// email tile copies the address; if the clipboard is blocked, fall through to the mailto link
+const emailLink=document.getElementById('emailLink');
+emailLink.addEventListener('click',async e=>{e.preventDefault();const c=document.getElementById('copied');
+  try{await navigator.clipboard.writeText(emailLink.href.replace('mailto:',''));c.textContent='copied ✓';setTimeout(()=>c.textContent='',2000);}
+  catch(err){location.href=emailLink.href;}});
