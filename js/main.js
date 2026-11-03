@@ -61,7 +61,7 @@ const out={
     +table(["where","when","role"],jobs)
     +'<span class="tbl-list">'+jobs.map(([co,yrs,role])=>'<span class="t-dir">'+esc(co)+'</span> '+esc(yrs)+'\n  '+esc(role)).join('\n')+'</span>'
     +cmt("training")+block("Developers Institute diploma")
-    +cmt("stack")+block("JS, Node, React, Rails\nArch linux btw."),
+    +cmt("stack")+block("JS, Node, React, Rails – and honestly anything I've been forced to run with in technical interviews.\nReluctantly agentic coding, harness engineering, and SDD\nArch linux btw."),
   "ls side-projects/":cmt("things I've built for fun")
     +'<span class="t-ls">'+projects.map(([d,x])=>'<span class="t-dir">'+esc(d)+'</span><span>'+esc(x)+'</span>').join('')+'</span>',
   "help":esc("commands: cat experience.md, ls side-projects/, clear")

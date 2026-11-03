@@ -123,7 +123,7 @@
   .t-hint button{font-size:13px;background:transparent;color:var(--ink);border:1px solid var(--ctp-surface2);border-radius:var(--r);padding:6px 11px;cursor:pointer}
   .t-hint button:hover{border-color:var(--green);color:var(--green)}
   /* fixed height so switching commands never resizes the window; long output scrolls inside like a real terminal */
-  #termOut{white-space:pre-wrap;height:calc(14 * 1.75em);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--ctp-surface2) transparent;margin-top:12px}
+  #termOut{white-space:pre-wrap;height:calc(15 * 1.75em);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--ctp-surface2) transparent;margin-top:12px}
   #termOut a{color:var(--green)}
   /* tight leading so the box-drawing verticals join; never wrap (phones get .tbl-list instead) */
   .tbl{display:block;line-height:1.25;white-space:pre;margin-top:.3em}
