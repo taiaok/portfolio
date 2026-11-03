@@ -11,18 +11,8 @@ const rm=[
   "I'm planning our work around milestones we can actually show and funding goals, rather than progress buried in tickets."
 ];
 const bars=[...document.querySelectorAll('.bar')], rmD=document.getElementById('rmDetail');
-const rmWrap=document.querySelector('.rm-wrap'),rmBox=document.querySelector('.roadmap'),rmPath=document.querySelector('#rmLink path'),rmDot=document.querySelector('#rmLink circle');
-let rmCur=1;
-// connector: out of the active bar's left side, a short step left, a right angle, then down onto the story box
-function linkRm(){const a=bars.find(b=>+b.dataset.i===rmCur);if(!a)return;
-  const w=rmWrap.getBoundingClientRect(),b=a.getBoundingClientRect(),box=rmBox.getBoundingClientRect(),d=rmD.getBoundingClientRect();
-  const x0=b.left-w.left,y0=b.top+b.height/2-w.top,xs=x0-10,y1=d.top-w.top,ym=(box.bottom+d.top)/2-w.top;
-  const x1=Math.min(Math.max(xs,d.left-w.left+6),d.right-w.left-14);
-  rmDot.setAttribute('cx',x0);rmDot.setAttribute('cy',y0);
-  rmPath.setAttribute('d',x1===xs?`M${x0} ${y0}H${xs}V${y1}`:`M${x0} ${y0}H${xs}V${ym}H${x1}V${y1}`);}
-function showRm(i){rmCur=i;bars.forEach(b=>b.classList.toggle('active',+b.dataset.i===i));rmD.textContent=rm[i];linkRm();}
-addEventListener('resize',linkRm);document.fonts&&document.fonts.ready.then(linkRm);
-bars.forEach(b=>b.addEventListener('click',()=>showRm(+b.dataset.i)));showRm(1);
+function showRm(i){bars.forEach(b=>b.classList.toggle('active',+b.dataset.i===i));rmD.textContent=rm[i]}
+bars.forEach(b=>b.addEventListener('click',()=>showRm(+b.dataset.i)));showRm(0);
 
 // PACMAN DIVIDER: progress follows scroll (backwards when scrolling up); pacman is gone once the line is complete
 (()=>{const el=document.getElementById('pacbar');if(!el)return;
