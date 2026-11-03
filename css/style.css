@@ -40,10 +40,12 @@
   .btn.ghost:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
   @media(max-width:700px){nav a.nl{display:none}}
 
-  section{padding:clamp(120px,18vh,200px) 0;border-top:1px solid var(--line)}
+  /* section dividers: a short centred rule instead of a full-width border */
+  section,footer{background:linear-gradient(var(--line),var(--line)) center top/25% 1px no-repeat}
+  section{padding:clamp(120px,18vh,200px) 0}
 
   /* hero */
-  #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;border-top:none;padding:60px 0}
+  #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;background:none;padding:60px 0}
   .huge{font-family:var(--display);font-weight:400;font-size:clamp(48px,11vw,120px);line-height:1;letter-spacing:-.02em}
   #hero .huge{font-weight:300}
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}header{transition:none}}
@@ -175,5 +177,5 @@
   .socials a:hover,.socials a:focus-visible{color:var(--accent);border-color:currentColor}
   .socials svg{width:clamp(40px,9vw,72px);height:auto}
   .copied{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:12px;color:var(--accent)}
-  footer{border-top:1px solid var(--line);padding:28px 0;font-size:12px;color:var(--muted)}
+  footer{padding:28px 0;font-size:12px;color:var(--muted)}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
