@@ -11,7 +11,16 @@ const rm=[
   "I'm planning our work around milestones we can actually show and funding goals, rather than progress buried in tickets."
 ];
 const bars=[...document.querySelectorAll('.bar')], rmD=document.getElementById('rmDetail');
-function showRm(i){bars.forEach(b=>b.classList.toggle('active',+b.dataset.i===i));rmD.textContent=rm[i];}
+const rmWrap=document.querySelector('.rm-wrap'),rmBox=document.querySelector('.roadmap'),rmPath=document.querySelector('#rmLink path');
+let rmCur=1;
+// elbow line: down from the active bar's left end, across under the timeline box, down onto the story box
+function linkRm(){const a=bars.find(b=>+b.dataset.i===rmCur);if(!a)return;
+  const w=rmWrap.getBoundingClientRect(),b=a.getBoundingClientRect(),box=rmBox.getBoundingClientRect(),d=rmD.getBoundingClientRect();
+  const x0=b.left-w.left+14,y0=b.bottom-w.top,y1=d.top-w.top,ym=(box.bottom+d.top)/2-w.top;
+  const x1=Math.min(Math.max(x0,d.left-w.left+14),d.right-w.left-14);
+  rmPath.setAttribute('d',x1===x0?`M${x0} ${y0}V${y1}`:`M${x0} ${y0}V${ym}H${x1}V${y1}`);}
+function showRm(i){rmCur=i;bars.forEach(b=>b.classList.toggle('active',+b.dataset.i===i));rmD.textContent=rm[i];linkRm();}
+addEventListener('resize',linkRm);document.fonts&&document.fonts.ready.then(linkRm);
 bars.forEach(b=>b.addEventListener('click',()=>showRm(+b.dataset.i)));showRm(1);
 
 // PACMAN DIVIDER: progress follows scroll (backwards when scrolling up); pacman is gone once the line is complete
