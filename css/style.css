@@ -106,27 +106,20 @@
   .pacbar{position:absolute;top:0;left:50%;transform:translate(-50%,-50%);width:25%;min-width:180px;font-family:var(--mono);font-size:13px;line-height:1;white-space:pre;overflow:hidden;color:var(--muted);user-select:none}
   .pacbar .tr{color:var(--line)}
   .pacbar .pm{color:var(--yellow)}
-  .wm{display:grid;grid-template-columns:1fr 1.15fr;gap:12px}
+  .wm{display:grid;grid-template-columns:1fr;gap:12px}
   .win{display:flex;flex-direction:column;border:2px solid var(--ctp-surface2);border-radius:8px;background:var(--panel);overflow:hidden;color:var(--ink)}
   .win-bar{display:flex;justify-content:space-between;align-items:center;padding:8px 14px;background:var(--panel-2);border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
   .win-btns{display:flex;gap:7px}
   .win-btns i{width:11px;height:11px;border-radius:50%;background:var(--ctp-surface2)}
   .win-in{flex:1;display:flex;flex-direction:column;padding:clamp(22px,3vw,36px)}
   .win-in h2{margin-top:auto}
-  @media(max-width:800px){.wm{grid-template-columns:1fr}}
-  /* wide screens: one terminal window - title bar, then the intro and buttons, then the prompt */
-  @media(min-width:801px){
-    .wm{display:flex;flex-direction:column;border:2px solid var(--ctp-surface2);border-radius:8px;background:var(--panel);overflow:hidden}
-    .wm>.win{display:contents}
-    .term>.win-bar{order:0}
-    .win-note>.win-bar{display:none}
-    .win-note>.win-in{order:1;padding-bottom:0}
-    .win-note .t-hint{justify-content:flex-start;padding-top:20px}
-    .term-body{order:2}
-  }
   .term-body{padding:clamp(22px,3vw,36px);font-size:14px;line-height:1.75;cursor:text}
   .t-p{color:var(--text);max-width:620px;font-size:15px}
-  .t-hint{margin-top:auto;padding-top:28px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  /* readme drops its window chrome and reads as the section intro, centred above the terminal */
+  .win-note{border:none;background:none}
+  .win-note .win-bar{display:none}
+  .win-note .win-in{padding:0 0 24px;width:100%;max-width:720px;margin:0 auto}
+  .t-hint{margin-top:auto;padding-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
   .t-hint button{font-size:13px;background:transparent;color:var(--ink);border:1px solid var(--ctp-surface2);border-radius:var(--r);padding:6px 11px;cursor:pointer}
   .t-hint button:hover{border-color:var(--green);color:var(--green)}
   /* fixed height so switching commands never resizes the window; long output scrolls inside like a real terminal */
@@ -141,12 +134,8 @@
   .t-input-line{display:flex;align-items:center;gap:1ch}
   #termIn{flex:1;background:transparent;border:none;outline:none;color:var(--yellow);font-size:14px;caret-color:var(--ink);min-width:0}
   .t-err{color:var(--ctp-red)}
-  /* stacked: readme drops its window chrome and reads as section intro; terminal grows with output instead of reserving space */
+  /* narrower screens: shorter terminal output area */
   @media(max-width:800px){
-    .win-note{border:none;background:none}
-    .win-note .win-bar{display:none}
-    .win-note .win-in{padding:0 0 24px}
-    .t-hint{justify-content:flex-start;padding-top:20px}
     #termOut{height:calc(10 * 1.75em)}
   }
 
