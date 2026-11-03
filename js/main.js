@@ -74,7 +74,7 @@ async function run(c,typeIt){c=c.trim();if(busy||!c)return;busy=true;
   if(c==='clear'){tIn.value='';tOut.innerHTML='';busy=false;return;}
   const res=out[c]?out[c]:'<span class="t-err">command not found: '+esc(c)+'</span>  (try help)';
   tOut.innerHTML=res;
-  tOut.scrollTop=0;
+  tOut.scrollTop=0;tb.scrollTop=0;
   busy=false;}
 document.querySelectorAll('#cmds button').forEach(b=>b.addEventListener('click',()=>run(b.dataset.c,true)));
 // focusing selects the last command, so typing replaces it
