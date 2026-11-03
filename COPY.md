@@ -18,7 +18,7 @@ Hero
 
 Name (big): taiao kawiti
 
-Tagline: I help good ideas become really good, and then make them happen.
+Tagline: I help good ideas become really good, and then make them happen
 
 About
 
