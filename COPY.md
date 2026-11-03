@@ -18,7 +18,7 @@ Hero
 
 Name (big): taiao kawiti
 
-Tagline: Developer, delivery lead and storyteller. I help good ideas become really good, and then make them real.
+Tagline: Developer, delivery lead and storyteller. I help good ideas become really good, and then make them happen.
 
 About
 
