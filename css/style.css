@@ -114,6 +114,16 @@
   .win-in{flex:1;display:flex;flex-direction:column;padding:clamp(22px,3vw,36px)}
   .win-in h2{margin-top:auto}
   @media(max-width:800px){.wm{grid-template-columns:1fr}}
+  /* wide screens: one terminal window - title bar, then the intro and buttons, then the prompt */
+  @media(min-width:801px){
+    .wm{display:flex;flex-direction:column;border:2px solid var(--ctp-surface2);border-radius:8px;background:var(--panel);overflow:hidden}
+    .wm>.win{display:contents}
+    .term>.win-bar{order:0}
+    .win-note>.win-bar{display:none}
+    .win-note>.win-in{order:1;padding-bottom:0}
+    .win-note .t-hint{justify-content:flex-start;padding-top:20px}
+    .term-body{order:2}
+  }
   .term-body{padding:clamp(22px,3vw,36px);font-size:14px;line-height:1.75;cursor:text}
   .t-p{color:var(--text);max-width:620px;font-size:15px}
   .t-hint{margin-top:auto;padding-top:28px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
