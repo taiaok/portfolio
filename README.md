@@ -1,6 +1,6 @@
 # Taiao Kawiti — portfolio
 
-Prototype of the delivery-lead portfolio. Plain HTML, CSS and JS, no build step.
+Plain HTML, CSS and JS, no build step. Deployed to GitHub Pages on push to `main`.
 
 ## Run locally
 
@@ -13,15 +13,14 @@ python3 -m http.server 8000
 ## Structure
 
 ```
-index.html      page markup (hero, about, Āhau roadmap, terminal, editor, contact)
-css/style.css   styles — Literata (headlines), IBM Plex Sans (body), IBM Plex Mono (labels/terminal)
-js/main.js      roadmap clicks, terminal commands, reel timeline/playhead, copy-email
+index.html      page markup and copy (hero, about, Āhau roadmap, terminal, reel, contact)
+css/style.css   styles: Iosevka (headings, self-hosted in fonts/), IBM Plex Sans (body), IBM Plex Mono (terminal)
+js/main.js      header, roadmap and reel selection, pacman divider, terminal commands
+reel/           stills for the creative timeline (referenced by each clip's data-img)
+COPY.md         all site copy in one place for editing
+shelved.md      projects pulled from the site for now
 ```
 
-## To do before launch
+Format with `npx prettier --write css js` (settings in `.prettierrc.json`).
 
-- [ ] Replace placeholder Āhau milestone copy (`rm` array in `js/main.js`)
-- [ ] Real email address (`#email` in `index.html`)
-- [ ] Final tagline and about copy
-- [ ] Remove the PROTOTYPE badge (`.proto`)
-- [ ] Add real video/photo stills to the creative monitor
+Asset URLs use `?v=dev`; the deploy workflow swaps in the commit SHA, so there's nothing to bump by hand.

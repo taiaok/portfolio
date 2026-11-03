@@ -25,16 +25,13 @@ jobs:
 
       - uses: actions/configure-pages@v4
 
+      # everything in the repo ships except git/CI files, root-level docs (README, COPY, shelved) and editor config;
+      # new asset folders are picked up without editing this file
       - name: Prepare site
         run: |
-          mkdir -p _site
-          cp index.html _site/
-          cp -r css js _site/
-          cp CNAME _site/
-          cp -r gifs _site/
-          cp -r reel _site/
-          cp -r fonts icons logos _site/
-          cp favicon.ico _site/
+          rsync -a --exclude='.git*' --exclude='/*.md' --exclude='/.prettierrc.json' --exclude='/_site' ./ _site/
+          # cache-bust css/js with this commit, so a deploy is never served stale
+          sed -i "s/?v=dev/?v=${GITHUB_SHA::7}/g" _site/index.html
 
       - uses: actions/upload-pages-artifact@v3
         with:
