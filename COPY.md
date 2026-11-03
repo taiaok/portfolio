@@ -119,11 +119,9 @@ The big picture
 
 Contact
 
-Heading: Let's have a yarn
+Heading: Let's have a yarn!
 
-Tagline: Need a hand or just want to say hi? Get in touch.
-
-Icons (3 columns, no text): email (copies address) · github (github.com/taiaok) · linkedin (linkedin.com/in/taiaokawiti)
+Icons (3 columns, no text): email (mailto link) · github (github.com/taiaok) · linkedin (linkedin.com/in/taiaokawiti)
 
 Email: taiaokawiti@protonmail.com
 

@@ -900,10 +900,6 @@ h2 {
 #contact .wrap {
   text-align: center;
 }
-#contact .lede {
-  margin-left: auto;
-  margin-right: auto;
-}
 #contact {
   padding: clamp(160px, 24vh, 260px) 0;
 }
