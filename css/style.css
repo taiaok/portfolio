@@ -165,10 +165,12 @@
   .playhead::before{content:"";position:absolute;top:-6px;left:-5px;border:6px solid transparent;border-top-color:var(--accent)}
 
   /* contact */
+  #contact .wrap{text-align:center}
+  #contact .lede{margin-left:auto;margin-right:auto}
   #contact{padding:clamp(160px,24vh,260px) 0}
   /* phones: vh-based padding left short sections floating in empty space */
   @media(max-width:700px){section,#dev,#creative{padding:64px 0}#contact{padding:72px 0}}
-  .socials{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:600px;margin-top:48px}
+  .socials{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:600px;margin:48px auto 0}
   .socials a{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:1;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);color:var(--muted);transition:color .15s,border-color .15s}
   .socials a:hover,.socials a:focus-visible{color:var(--accent);border-color:currentColor}
   .socials svg{width:clamp(40px,9vw,72px);height:auto}
