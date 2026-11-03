@@ -24,15 +24,13 @@ About
 
 Big line: What I do
 
-Body: Kia ora, I'm Taiao (Ngāpuhi, Ngāti Hine), based in Te Whanganui-a-Tara. I started out behind a camera, got into software, and these days I'm leading project delivery. I’m all about the warm fuzzies and want to use my skills to make the world a better place - for Māori, disadvantaged communities, and humans everywhere. Right now that looks like building tech literacy and delivering kaupapa centred tools with Āhau (link to ahau.io).
-
+Body: Kia ora, I'm Taiao (Ngāpuhi, Ngāti Hine), based in Wellington. I started out behind a camera, got into software, and these days I'm leading project delivery. I’m all about the warm fuzzies and want to use my skills to make the world a better place - for Māori, disadvantaged communities, and humans everywhere. Right now that looks like building tech literacy and delivering kaupapa centred tools with Āhau (link to ahau.io).
 
 Working on
 
 Heading: What I'm working on
 
-Intro: Right now I'm the delivery lead for Āhau (links to [ahau.io](http://ahau.io)), a kaupapa Māori whakapapa app. I'm the main developer on new features and maintenance, and I also look after milestones and mentor our junior dev.
-
+Intro: Right now I'm contracting as the delivery lead for Āhau (links to [ahau.io](http://ahau.io)), a kaupapa Māori whakapapa app. I'm the main developer on new features and maintenance, and I also look after milestones and mentor our junior dev.
 
 Roadmap
 
