@@ -14,16 +14,17 @@ const bars=[...document.querySelectorAll('.bar')], rmD=document.getElementById('
 function showRm(i){bars.forEach(b=>b.classList.toggle('active',+b.dataset.i===i));rmD.textContent=rm[i];}
 bars.forEach(b=>b.addEventListener('click',()=>showRm(+b.dataset.i)));showRm(1);
 
-// PACMAN DIVIDER: progress follows scroll; pacman eats dots going down and turns back going up
+// PACMAN DIVIDER: progress follows scroll (backwards when scrolling up); pacman is gone once the line is complete
 (()=>{const el=document.getElementById('pacbar');if(!el)return;
-  let n=0,pos=-1,dir=1,queued=false;
+  let n=0,pos=-1,queued=false;
   const measure=()=>{const t=document.createElement('span');t.textContent='0'.repeat(10);el.appendChild(t);const w=t.getBoundingClientRect().width/10;t.remove();n=Math.max(8,Math.floor(el.clientWidth/w));};
-  const draw=()=>{let dots='';for(let i=pos+1;i<n;i++)dots+=(i%3===0?'o':' ');
-    el.innerHTML='<span class="tr">'+'-'.repeat(pos)+'</span><span class="pm'+(dir<0?' back':'')+'">'+(pos%2?'c':'C')+'</span>'+dots;};
+  const draw=()=>{if(pos>=n-1){el.innerHTML='<span class="tr">'+'-'.repeat(n)+'</span>';return;}
+    let dots='';for(let i=pos+1;i<n;i++)dots+=(i%3===0?'o':' ');
+    el.innerHTML='<span class="tr">'+'-'.repeat(pos)+'</span><span class="pm">'+(pos%2?'c':'C')+'</span>'+dots;};
   // 0 when the bar enters at the bottom of the screen, 1 once it's a third of the way down from the top
   const progress=()=>{const vh=innerHeight,top=el.getBoundingClientRect().top;return Math.min(1,Math.max(0,(vh-top)/(vh*2/3)));};
   const update=()=>{queued=false;const next=Math.round(progress()*(n-1));
-    if(next!==pos){if(pos>=0)dir=next>pos?1:-1;pos=next;draw();}};
+    if(next!==pos){pos=next;draw();}};
   const queue=()=>{if(!queued){queued=true;requestAnimationFrame(update);}};
   measure();
   if(matchMedia('(prefers-reduced-motion: reduce)').matches){pos=n-1;draw();return;}
