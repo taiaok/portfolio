@@ -4,7 +4,7 @@ Edit freely, then tell me and I'll apply it back to the site. Headings mirror th
 
 Meta
 
-Browser tab title: Taiao Kawiti – delivery, dev &amp; creative
+Browser tab title: Taiao Kawiti
 
 Header
 
