@@ -15,27 +15,21 @@ bars.forEach(b=>b.addEventListener('click',()=>showRm(+b.dataset.i)));showRm(1);
 
 // TERMINAL
 const out={
-  "whoami":"taiao — dev turned delivery lead.\nDevelopers Institute diploma. JavaScript, Node, React, Express.\nLinux by choice.",
-  "ls experience/":"flick.md    bnz.md    freelance/",
-  "cat flick.md":"# Flick Electric — 2023–2025\nSoftware engineer intern, Ruby on Rails.\nLearned how a small product team ships, and why\nvisible progress matters as much as the fix.",
-  "cat bnz.md":"# BNZ — 2025–2026\nTech graduate, domestic payments mainframe (COBOL/JCL).\nHigh-stakes systems where a mistake moves real money.\nLeft for more autonomy.",
-  "ls side-projects/":"fetch-plugin/     # Noctalia shell widget, system info on desktop + lock screen\nscam-buster/      # self-hosted scam-detection app, Node/Express\nportfolio/        # you are here"
+  "cat experience.md":"# experience\nDevelopers Institute diploma: JavaScript, Node, React, Express.\nLinux by choice.\n\n## Flick Electric — 2023–2025\nSoftware engineer intern, Ruby on Rails.\nLearned how a small product team ships, and why\nvisible progress matters as much as the fix.\n\n## BNZ — 2025–2026\nTech graduate, domestic payments mainframe (COBOL/JCL).\nHigh-stakes systems where a mistake moves real money.\nLeft for more autonomy.",
+  "ls side-projects/":"fetch-plugin/     # Noctalia shell widget, system info on desktop + lock screen\nscam-buster/      # self-hosted scam-detection app, Node/Express\nportfolio/        # you are here",
+  "help":"commands: cat experience.md, ls side-projects/, clear"
 };
-out["help"]="commands: whoami, ls experience/, cat flick.md, cat bnz.md,\n          ls side-projects/, ./contact.sh, clear";
-out["ls"]=out["ls experience/"];
 const tb=document.getElementById('termBody'),tOut=document.getElementById('termOut'),tIn=document.getElementById('termIn');let busy=false;
 const esc=s=>s.replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
 const pl='<span class="prompt">taiao@kawiti</span>:~/dev$ ';
+// each command replaces the previous output, so the box never grows
 async function run(c,typeIt){c=c.trim();if(busy||!c)return;busy=true;
   if(typeIt){tIn.value='';for(const ch of c){tIn.value+=ch;await new Promise(r=>setTimeout(r,30));}}
   tIn.value='';
   if(c==='clear'){tOut.innerHTML='';busy=false;return;}
-  let res;
-  if(c==='./contact.sh'||c==='contact'){res='opening contact… <a href="#contact">→ let\'s talk</a>';setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),700);}
-  else if(out[c]) res=esc(out[c]);
-  else res='<span class="t-err">command not found: '+esc(c)+'</span>  (try help)';
-  tOut.innerHTML+=pl+'<span class="cmd">'+esc(c)+'</span>\n'+res+'\n\n';
-  tb.scrollTop=tb.scrollHeight;busy=false;}
+  const res=out[c]?esc(out[c]):'<span class="t-err">command not found: '+esc(c)+'</span>  (try help)';
+  tOut.innerHTML=pl+'<span class="cmd">'+esc(c)+'</span>\n'+res;
+  busy=false;}
 document.querySelectorAll('#cmds button').forEach(b=>b.addEventListener('click',()=>run(b.dataset.c,true)));
 tIn.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();run(tIn.value);}});
 tb.addEventListener('click',e=>{if(!e.target.closest('button,a'))tIn.focus({preventScroll:true});});
