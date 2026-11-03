@@ -119,7 +119,7 @@
   .win-note{border:none;background:none}
   .win-note .win-bar{display:none}
   .win-note .win-in{padding:0 0 24px;width:100%;max-width:720px;margin:0 auto}
-  .t-hint{margin-top:auto;padding-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .t-hint{margin-top:auto;padding-top:20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-start}
   .t-hint button{font-size:13px;background:transparent;color:var(--ink);border:1px solid var(--ctp-surface2);border-radius:var(--r);padding:6px 11px;cursor:pointer}
   .t-hint button:hover{border-color:var(--green);color:var(--green)}
   /* fixed height so switching commands never resizes the window; long output scrolls inside like a real terminal */
