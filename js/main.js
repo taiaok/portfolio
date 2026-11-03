@@ -14,6 +14,21 @@ const bars=[...document.querySelectorAll('.bar')], rmD=document.getElementById('
 function showRm(i){bars.forEach(b=>b.classList.toggle('active',+b.dataset.i===i));rmD.textContent=rm[i];}
 bars.forEach(b=>b.addEventListener('click',()=>showRm(+b.dataset.i)));showRm(1);
 
+// PACMAN DIVIDER: chomps along eating dots, leaving the divider line behind it
+(()=>{const el=document.getElementById('pacbar');if(!el)return;
+  let n=0,pos=0,timer=null;
+  const measure=()=>{const t=document.createElement('span');t.textContent='0'.repeat(10);el.appendChild(t);const w=t.getBoundingClientRect().width/10;t.remove();n=Math.max(8,Math.floor(el.clientWidth/w));};
+  const draw=()=>{let dots='';for(let i=pos+1;i<n;i++)dots+=(i%3===0?'o':' ');
+    el.innerHTML='<span class="tr">'+'-'.repeat(pos)+'</span><span class="pm">'+(pos%2?'c':'C')+'</span>'+dots;};
+  const tick=()=>{draw();if(pos<n-1){pos++;timer=setTimeout(tick,110);}else timer=setTimeout(()=>{pos=0;tick();},1400);};
+  const stop=()=>{clearTimeout(timer);timer=null;};
+  measure();
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){pos=n-1;draw();return;}
+  draw();
+  new IntersectionObserver(([e])=>{if(e.isIntersecting){if(!timer)tick();}else stop();}).observe(el);
+  addEventListener('resize',()=>{const old=n;measure();if(n!==old){pos=Math.min(pos,n-1);draw();}});
+})();
+
 // TERMINAL
 const esc=s=>s.replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
 // console.table-style box: columns sized to their widest cell

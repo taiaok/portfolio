@@ -90,7 +90,11 @@
   }
 
   /* dev = two tiled windows: intro note + interactive terminal */
-  #dev{padding:clamp(90px,12vh,140px) 0}
+  #dev{padding:clamp(90px,12vh,140px) 0;position:relative;background:none}
+  /* divider above the terminal: pacman-style progress bar (ILoveCandy) */
+  .pacbar{position:absolute;top:0;left:50%;transform:translate(-50%,-50%);width:25%;min-width:180px;font-family:var(--mono);font-size:13px;line-height:1;white-space:pre;overflow:hidden;color:var(--muted);user-select:none}
+  .pacbar .tr{color:var(--line)}
+  .pacbar .pm{color:var(--yellow)}
   .wm{display:grid;grid-template-columns:1fr 1.15fr;gap:12px}
   .win{display:flex;flex-direction:column;border:2px solid var(--ctp-surface2);border-radius:8px;background:var(--panel);overflow:hidden;color:var(--ink)}
   .win-bar{display:flex;justify-content:space-between;align-items:center;padding:8px 14px;background:var(--panel-2);border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
