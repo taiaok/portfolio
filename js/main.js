@@ -6,8 +6,8 @@ addEventListener('scroll',syncHdr,{passive:true});syncHdr();
 // ROADMAP
 const rm=[
   "When I came on we had a mountain of legacy code to understand and no one who already did. So I did a technical audit and worked out what we actually needed before we built anything else. That gave everyone the same starting point.",
-  "Nobody owned delivery, so decisions weren't being made. I proposed a delivery lead role with a clear plan and decision points.",
-  "Our junior dev was carrying a lot without much backup. I pair, review and coach, and hand over more as their skills grow. The goal is a team that doesn't need me in every decision.",
+  "I proposed and stepped into a delivery lead role, with a clear plan and decision points so the team always knows what's next and why.",
+  "I pair, review and coach our junior dev, and hand over more as their skills grow. The goal is a team that doesn't need me in every decision.",
   "I'm planning our work around milestones we can actually show and funding goals, rather than progress buried in tickets."
 ];
 const bars=[...document.querySelectorAll('.bar')], rmD=document.getElementById('rmDetail');
@@ -56,8 +56,8 @@ tb.addEventListener('click',e=>{if(!e.target.closest('button,a'))tIn.focus({prev
 const clips=[
   {img:"reel/yourstories.jpg",t:"What the camera taught me",x:"Before software, I spent years shooting and editing for iwi organisations and small businesses. A lot of how I deliver projects now I learned there."},
   {img:"reel/ontheground.jpg",t:"On the ground",x:"You get the best footage when everyone's comfortable. So I turn up, listen, and understand before deciding what to make. I start every project that way, whether it's a video or an app."},
-  {img:"reel/littledetails.jpg",t:"The little details",x:"The little things matter (and bother me) the most in the final stretch - framing, sound, border radius - and I’ve got a keen eye for them."},
-  {img:"reel/bigpicture.jpg",t:"The big picture",x:"The story needs to be coherent. Every endeavour needs a beginning, a turn and an end - and a way to get there."}
+  {img:"reel/littledetails.jpg",t:"The little details",x:"The little things matter (and bother me) the most in the final stretch – framing, sound, border radius – and I’ve got a keen eye for them."},
+  {img:"reel/bigpicture.jpg",t:"The big picture",x:"The story needs to be coherent. Every endeavour needs a beginning, a turn and an end – and a way to get there."}
 ];
 const cEls=[...document.querySelectorAll('.clip')],ph=document.getElementById('playhead'),ed=document.getElementById('editor');
 const tc=document.getElementById('tc'),mon=document.getElementById('monitor');

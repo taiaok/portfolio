@@ -4,7 +4,7 @@ Edit freely, then tell me and I'll apply it back to the site. Headings mirror th
 
 Meta
 
-Browser tab title: Taiao Kawiti - delivery, dev &amp; creative
+Browser tab title: Taiao Kawiti – delivery, dev &amp; creative
 
 Header
 
@@ -24,7 +24,7 @@ About
 
 Big line: What I do
 
-Body: Kia ora, I'm Taiao (Ngāpuhi, Ngāti Hine), based in Wellington. I started out behind a camera, got into software, and these days I'm leading project delivery. I’m all about the warm fuzzies and want to use my skills to make the world a better place - for Māori, disadvantaged communities, and humans everywhere. Right now that looks like building tech literacy and delivering kaupapa centred tools with Āhau (link to ahau.io).
+Body: Kia ora, I'm Taiao (Ngāpuhi, Ngāti Hine), based in Wellington. I started out behind a camera, got into software, and these days I'm leading project delivery. I’m all about the warm fuzzies and want to use my skills to make the world a better place – for Māori, disadvantaged communities, and humans everywhere. Right now that looks like building tech literacy and delivering kaupapa centred tools with Āhau (link to ahau.io).
 
 Working on
 
@@ -42,11 +42,11 @@ Discovery / Figuring it out
 
 Structure / Creating structure
 
- Nobody owned delivery, so decisions weren't being made. I proposed a delivery lead role with a clear plan and decision points.
+ I proposed and stepped into a delivery lead role, with a clear plan and decision points so the team always knows what's next and why.
 
 People / Building Capability
 
- Our junior dev was carrying a lot without much backup. I pair, review and coach, and hand over more as their skills grow. The goal is a team that doesn't need me in every decision.
+ I pair, review and coach our junior dev, and hand over more as their skills grow. The goal is a team that doesn't need me in every decision.
 
 Ship / Making it visible
 
@@ -111,11 +111,11 @@ On the ground
 
 The little details
 
- The little things matter (and bother me) the most in the final stretch  - framing, sound, border radius - and I’ve got a keen eye for them. 
+ The little things matter (and bother me) the most in the final stretch – framing, sound, border radius – and I’ve got a keen eye for them. 
 
 The big picture
 
- The story needs to be coherent. Every endeavour needs  a beginning, a turn and an end - and a way to get there.
+ The story needs to be coherent. Every endeavour needs  a beginning, a turn and an end – and a way to get there.
 
 Contact
 
