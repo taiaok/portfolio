@@ -47,12 +47,23 @@ const jobs=[
   ["Āhau","2026–now","deliverer of deliverables"]
 ];
 // values are HTML: plain text goes through esc()
+// '# ...' lines are shell comments: a plain-English heading for each group
+const cmt=t=>'<span class="t-c"># '+esc(t)+'</span>';
+const block=t=>'<span class="t-b">'+esc(t)+'</span>';
+const projects=[
+  ["fetch-plugin/","widget for viewing PC stats on Noctalia"],
+  ["scam-buster/","URL analysis and running unknown phone numbers"],
+  ["portfolio/","you are here"]
+];
 const out={
   // the table is too wide for phones, so a plain list of the same jobs is rendered alongside; CSS shows one
-  "cat experience.md":table(["(index)","years","role"],jobs)
-    +'<span class="tbl-list">'+esc(jobs.map(([co,yrs,role])=>co+' '+yrs+'\n  '+role).join('\n'))+'</span>'
-    +esc("Developers Institute diploma.\nJS, Node, React, Rails.\nArch linux btw."),
-  "ls side-projects/":esc("fetch-plugin/   # Noctalia system-info widget\nscam-buster/    # self-hosted scam checker\nportfolio/      # you are here"),
+  "cat experience.md":cmt("where I've worked")
+    +table(["where","when","role"],jobs)
+    +'<span class="tbl-list">'+jobs.map(([co,yrs,role])=>'<span class="t-dir">'+esc(co)+'</span> '+esc(yrs)+'\n  '+esc(role)).join('\n')+'</span>'
+    +cmt("training")+block("Developers Institute diploma")
+    +cmt("stack")+block("JS, Node, React, Rails\nArch linux btw."),
+  "ls side-projects/":cmt("things I've built for fun")
+    +'<span class="t-ls">'+projects.map(([d,x])=>'<span class="t-dir">'+esc(d)+'</span><span>'+esc(x)+'</span>').join('')+'</span>',
   "help":esc("commands: cat experience.md, ls side-projects/, clear")
 };
 const tb=document.getElementById('termBody'),tOut=document.getElementById('termOut'),tIn=document.getElementById('termIn');let busy=false;

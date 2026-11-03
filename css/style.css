@@ -126,10 +126,16 @@
   #termOut{white-space:pre-wrap;height:calc(18 * 1.75em);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--ctp-surface2) transparent;margin-top:12px}
   #termOut a{color:var(--green)}
   /* tight leading so the box-drawing verticals join; never wrap (phones get .tbl-list instead) */
-  .tbl{display:block;line-height:1.25;white-space:pre;margin-bottom:.8em}
+  .tbl{display:block;line-height:1.25;white-space:pre;margin-top:.3em}
   .tbl i{font-style:normal;color:var(--ctp-surface2)}
-  .tbl-list{display:none;margin-bottom:.8em}
-  @media(max-width:700px){.tbl{display:none}.tbl-list{display:block}}
+  .tbl-list{display:none}
+  /* output formatting: grey '#' headings, a gap between groups, ls as an aligned two-column list */
+  .t-c{display:block;color:var(--muted);margin-top:1.2em}
+  .t-c:first-child{margin-top:0}
+  .t-b{display:block}
+  .t-dir{color:var(--ctp-blue)}
+  .t-ls{display:grid;grid-template-columns:max-content 1fr;gap:.2em 3ch;white-space:normal}
+  @media(max-width:700px){.tbl{display:none}.tbl-list{display:block}.t-ls{grid-template-columns:1fr;gap:0}.t-ls span:nth-child(even){padding-left:2ch;margin-bottom:.4em}}
   .prompt{color:var(--green)}
   .t-input-line{display:flex;align-items:center;gap:1ch}
   #termIn{flex:1;background:transparent;border:none;outline:none;color:var(--yellow);font-size:14px;caret-color:var(--ink);min-width:0}
