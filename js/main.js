@@ -12,7 +12,8 @@ const rm=[
 ];
 const bars=[...document.querySelectorAll('.bar')], rmD=document.getElementById('rmDetail');
 function showRm(i){bars.forEach(b=>b.classList.toggle('active',+b.dataset.i===i));rmD.textContent=rm[i]}
-bars.forEach(b=>b.addEventListener('click',()=>showRm(+b.dataset.i)));showRm(0);
+const rmHint=document.getElementById('rmHint');
+bars.forEach(b=>b.addEventListener('click',()=>{rmHint.classList.add('gone');showRm(+b.dataset.i);}));showRm(0);
 
 // PACMAN DIVIDER: progress follows scroll (backwards when scrolling up); pacman is gone once the line is complete
 (()=>{const el=document.getElementById('pacbar');if(!el)return;

@@ -79,6 +79,11 @@
   .rm-track{position:relative;height:100%}
   .bar{position:absolute;top:12px;height:28px;border-radius:var(--r);background:var(--accent-soft);border:1px solid color-mix(in srgb, var(--accent) 35%, transparent);font-size:12px;padding:0 10px;display:flex;align-items:center;white-space:nowrap;overflow:hidden;cursor:pointer;transition:transform .15s,background .15s;color:var(--accent)}
   .bar:hover{transform:translateY(-2px)}
+  /* nudge to click a milestone: wiggling finger under the 2nd bar, gone after the first click */
+  .rm-hint{position:absolute;left:calc(18% + 14px);top:36px;z-index:2;font-size:20px;line-height:1;pointer-events:none;transform-origin:50% 100%;animation:wiggle 1.4s ease-in-out infinite;transition:opacity .3s,visibility .3s}
+  .rm-hint.gone{opacity:0;visibility:hidden}
+  @keyframes wiggle{0%,100%{transform:rotate(0) translateY(0)}20%{transform:rotate(-14deg) translateY(-2px)}40%{transform:rotate(12deg) translateY(-2px)}60%{transform:rotate(-8deg)}80%{transform:rotate(6deg)}}
+  @media(prefers-reduced-motion:reduce){.rm-hint{animation:none}}
   .bar.active{background:var(--accent);color:var(--bg);border-color:var(--accent)}
   .rm-detail{margin-top:24px;border-top:1px solid var(--line);padding-top:24px;min-height:110px;max-width:840px;margin-left:auto;margin-right:auto;color:var(--text);font-size:15px}
   /* phones: no name column, bars keep their time position but wrap instead of clipping */
@@ -88,6 +93,7 @@
     .rm-row{display:block;height:auto;padding:10px 0}
     .rm-name{display:none}
     .rm-track{height:auto}
+    .rm-hint{top:calc(100% - 6px)}
     .bar{position:relative;top:0;height:auto;min-height:28px;padding:5px 8px;white-space:normal;line-height:1.3}
   }
 
