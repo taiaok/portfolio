@@ -85,31 +85,19 @@
 <section id="creative">
   <div class="wrap">
     <div class="nle">
-      <div class="nle-bar"><div class="tabs"><span>Assembly</span><span class="on">Edit</span><span>Audio</span></div><span class="t">taiao_reel — creative</span><span>⌘</span></div>
+      <div class="nle-bar"><span class="t">taiao_reel — creative</span></div>
       <div class="monitor" id="monitor">
-        <span class="rec"><b>●</b> PROGRAM</span>
-        <span class="tc" id="tc">00:00:00:00</span>
         <h3 id="monTitle"></h3>
         <p id="monText"></p>
       </div>
-      <div class="transport">
-        <button id="playBtn">▶ play reel</button>
-        <span id="clipName">title_card</span>
-        <a class="export" href="#contact">export → let's talk</a>
-      </div>
+      <div class="transport"><span class="tc"><b>●</b> <span id="tc">00:00:00:00</span></span></div>
       <div class="editor" id="editor">
         <div class="ruler"><span>00:00</span><span>00:30</span><span>01:00</span><span>01:30</span><span>02:00</span></div>
-        <div class="track"><div class="track-label">T1</div><div class="lane">
-          <div class="clip t" data-i="0" style="left:0;width:14%">title_card</div>
-          <div class="clip t" data-i="5" style="left:56%;width:20%">photo_series.jpg</div>
-        </div></div>
         <div class="track"><div class="track-label">V1</div><div class="lane">
-          <div class="clip v" data-i="1" style="left:14%;width:18%">brief.mov</div>
-          <div class="clip v" data-i="2" style="left:32%;width:24%">shoot_iwi.mov</div>
-          <div class="clip v" data-i="4" style="left:76%;width:24%">final_cut.mov</div>
-        </div></div>
-        <div class="track"><div class="track-label">A1</div><div class="lane">
-          <div class="clip a" data-i="3" style="left:48%;width:28%">sound_design.wav</div>
+          <button class="clip" data-i="0" style="left:0;width:14%"></button>
+          <button class="clip" data-i="1" style="left:14%;width:34%"></button>
+          <button class="clip" data-i="2" style="left:48%;width:28%"></button>
+          <button class="clip" data-i="3" style="left:76%;width:24%"></button>
         </div></div>
         <div class="playhead" id="playhead"></div>
       </div>

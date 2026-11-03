@@ -35,30 +35,27 @@ tIn.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();run(tI
 tb.addEventListener('click',e=>{if(!e.target.closest('button,a'))tIn.focus({preventScroll:true});});
 
 // TIMELINE
+// img: drop a matching file into reel/ and the clip and monitor pick it up; until then they show a plain block
 const clips=[
-  {t:"I understand stories, start to finish.",x:"Years of shooting and editing for iwi organisations and small businesses taught me how creative production actually runs, from the brief to the final cut. Hit play, or scrub the timeline."},
-  {t:"The brief",x:"Every good piece starts with understanding who it's for and what it needs to do. Same as any project."},
-  {t:"On the ground",x:"Freelance videography for iwi organisations and small businesses, 2020–2022. Showing up, building trust, capturing people as they are."},
-  {t:"Sound & feel",x:"Music and sound production: the part nobody notices until it's wrong."},
-  {t:"The final cut",x:"Shaping raw material into something with a beginning, a turn and an ending. Delivery, in another medium."},
-  {t:"Stills",x:"Photography practice. Training the eye for composition, light and restraint."}
+  {img:"reel/yourstories.jpg",t:"Understanding your stories.",x:"Years of shooting and editing for iwi organisations and small businesses taught me how creative production actually runs, from the brief to the final cut. Click through the timeline below."},
+  {img:"reel/ontheground.jpg",t:"On the ground",x:"Freelance videography for iwi organisations and small businesses, 2020–2022. Showing up, building trust, capturing people as they are."},
+  {img:"reel/littledetails.jpg",t:"The little details",x:"Sound design, music, and an eye for framing, light and composition. The parts nobody notices until they're wrong, and the reason a piece feels finished."},
+  {img:"reel/finalcut.jpg",t:"The final cut",x:"Shaping raw material into something with a beginning, a turn and an ending. Delivery, in another medium."}
 ];
 const cEls=[...document.querySelectorAll('.clip')],ph=document.getElementById('playhead'),ed=document.getElementById('editor');
 const mt=document.getElementById('monTitle'),mx=document.getElementById('monText'),tc=document.getElementById('tc');
-const mon=document.getElementById('monitor'),cn=document.getElementById('clipName'),pb=document.getElementById('playBtn');
-function showClip(i,el){cEls.forEach(c=>c.classList.toggle('active',c===el));cn.textContent=el.textContent;
-  mon.classList.add('fade');setTimeout(()=>{mt.textContent=clips[i].t;mx.textContent=clips[i].x;mon.classList.remove('fade');},180);
-  const er=ed.getBoundingClientRect(),cr=el.getBoundingClientRect();const x=cr.left-er.left+8;ph.style.left=x+'px';
-  const lane=el.parentElement.getBoundingClientRect();const frac=(cr.left-lane.left)/lane.width;const s=Math.round(frac*120);
+const mon=document.getElementById('monitor');
+function showClip(i,el){cEls.forEach(c=>c.classList.toggle('active',c===el));
+  mon.classList.add('fade');setTimeout(()=>{mt.textContent=clips[i].t;mx.textContent=clips[i].x;mon.style.setProperty('--shot',`url(${new URL(clips[i].img,document.baseURI)})`);mon.classList.remove('fade');},180);
+  movePlayhead(el);}
+// position only: safe to call on resize without replaying the fade
+function movePlayhead(el){const er=ed.getBoundingClientRect(),cr=el.getBoundingClientRect();ph.style.left=(cr.left-er.left+8)+'px';
+  const lane=el.parentElement.getBoundingClientRect();const s=Math.round((cr.left-lane.left)/lane.width*120);
   tc.textContent='00:0'+Math.floor(s/60)+':'+String(s%60).padStart(2,'0')+':00';}
-const order=[...cEls].sort((a,b)=>parseFloat(a.style.left)-parseFloat(b.style.left));
-let timer=null,pos=0;
-function stop(){clearInterval(timer);timer=null;pb.textContent='▶ play reel';}
-function step(){pos=(pos+1)%order.length;showClip(+order[pos].dataset.i,order[pos]);}
-pb.addEventListener('click',()=>{if(timer){stop();return;}pb.textContent='❚❚ pause';step();timer=setInterval(step,3800);});
-cEls.forEach(c=>c.addEventListener('click',()=>{stop();pos=order.indexOf(c);showClip(+c.dataset.i,c);}));
-requestAnimationFrame(()=>showClip(0,order[0]));
-addEventListener('resize',()=>{const a=document.querySelector('.clip.active');if(a)showClip(+a.dataset.i,a);});
+cEls.forEach(el=>{const c=clips[+el.dataset.i];el.style.backgroundImage=`url(${c.img})`;el.setAttribute('aria-label',c.t);});
+cEls.forEach(c=>c.addEventListener('click',()=>showClip(+c.dataset.i,c)));
+requestAnimationFrame(()=>showClip(0,cEls[0]));
+addEventListener('resize',()=>{const a=document.querySelector('.clip.active');if(a)movePlayhead(a);});
 
 // CONTACT
 document.getElementById('copyBtn').addEventListener('click',async()=>{const c=document.getElementById('copied');
